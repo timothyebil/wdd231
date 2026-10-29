@@ -1,5 +1,15 @@
-// Populate the copyright year field dynamically
-document.getElementById('currentyear').textContent = new Date().getFullYear();
+// Dynamically populate copyright year and last modified statement
+document.addEventListener("DOMContentLoaded", () => {
+    const currentYearSpan = document.querySelector("#currentyear");
+    const lastModifiedP = document.querySelector("#lastModified");
 
-// Populate document version history modified metadata timestamp properties
-document.getElementById('lastModified').textContent = `Last Modification: ${document.lastModified}`;
+    // Populate current year
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
+
+    // Populate last modified date string
+    if (lastModifiedP) {
+        lastModifiedP.textContent = `Last Modification: ${document.lastModified}`;
+    }
+});

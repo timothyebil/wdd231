@@ -1,0 +1,52 @@
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1.5rem;
+    }
+
+    #menuButton {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    nav a {
+        border-bottom: none;
+        padding: 1rem 1.25rem;
+    }
+
+    /* Arranges the layout fields using grids matching the screenshot */
+    .grid-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .about-card {
+        grid-column: 1 / 2;
+    }
+
+    .photo-card {
+        grid-column: 2 / 3;
+    }
+
+    .photo-placeholder {
+        height: calc(100% - 4.5rem);
+        margin: 1rem;
+    }
+
+    .course-card-section {
+        grid-column: span 2;
+    }
+
+    .course-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}

@@ -1,18 +1,13 @@
-// Toggle navigation menu visibility on small viewports
-const menuButton = document.querySelector('#menuButton');
-const mainNav = document.querySelector('#animNav');
+document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById("menuButton");
+    const navMenu = document.getElementById("animNav");
 
-menuButton.addEventListener('click', () => {
-    mainNav.classList.toggle('open');
-    menuButton.classList.toggle('open');
-    
-    // Accessibility management
-    const expanded = mainNav.classList.contains('open');
-    menuButton.setAttribute('aria-expanded', expanded);
-    
-    if (expanded) {
-        menuButton.textContent = '✕';
-    } else {
-        menuButton.textContent = '☰';
-    }
+    menuButton.addEventListener("click", () => {
+        const expanded = menuButton.getAttribute("aria-expanded") === "true" || false;
+        menuButton.setAttribute("aria-expanded", !expanded);
+        navMenu.classList.toggle("show");
+        
+        // Toggles hamburger character to an 'X' close indicator
+        menuButton.textContent = navMenu.classList.contains("show") ? "✕" : "☰";
+    });
 });

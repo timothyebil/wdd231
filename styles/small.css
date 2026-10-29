@@ -1,28 +1,26 @@
 :root {
-    --primary-dark: #1d3557;
-    --accent-blue: #457b9d;
-    --light-bg: #f1faee;
-    --card-bg: #ffffff;
-    --btn-bg: #e2eafc;
-    --text-color: #1d3557;
-    --completed-bg: #1d3557;
-    --completed-text: #ffffff;
+    --primary-color: #1d3557;
+    --accent-color: #457b9d;
+    --bg-dark: #111111;
+    --bg-light: #f8f9fa;
+    --text-color: #333333;
+    --card-completed: #d1e7dd;
+    --card-pending: #f8d7da;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--light-bg);
     color: var(--text-color);
+    background-color: var(--bg-light);
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: var(--primary-dark);
-    color: #f1faee;
+    background-color: var(--primary-color);
+    color: white;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     padding: 1rem;
     position: relative;
 }
@@ -30,58 +28,51 @@ header {
 .header-container {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 700;
+    gap: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 #menuButton {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
     background: none;
     border: none;
-    color: #f1faee;
-    font-size: 1.75rem;
+    color: white;
+    font-size: 2rem;
     cursor: pointer;
 }
 
 nav {
     display: none;
     flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--primary-dark);
-    z-index: 1000;
+    margin-top: 1rem;
 }
 
-nav.open {
+nav.show {
     display: flex;
 }
 
 nav a {
-    color: #f1faee;
-    padding: 1rem;
+    color: white;
     text-decoration: none;
+    padding: 0.75rem;
     text-align: center;
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-nav a:hover, nav a.active {
-    background-color: var(--accent-blue);
-    color: #ffffff; /* Increased from #f1faee to secure a 4.59:1 ratio for WCAG AA compliance */
-    font-weight: 700;
+nav a.active {
+    background-color: var(--accent-color);
 }
 
 main {
     padding: 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 h1 {
     text-align: center;
-    color: var(--primary-dark);
-    border-bottom: 2px solid var(--primary-dark);
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 0.5rem;
 }
 
@@ -92,96 +83,82 @@ h1 {
 }
 
 .card-section {
-    background: var(--card-bg);
+    background: white;
+    border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1.25rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.card-section h2 {
-    margin-top: 0;
-    background-color: var(--primary-dark);
-    color: #f1faee;
-    padding: 0.5rem;
-    text-align: center;
-    font-size: 1.1rem;
-    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .photo-placeholder {
     display: flex;
     justify-content: center;
-    align-items: center;
-    background: var(--btn-bg);
-    min-height: 220px;
-    border-radius: 4px;
 }
 
 .profile-img {
-    border-radius: 4px;
-    object-fit: cover;
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
 }
 
 .filter-buttons {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .btn {
-    background-color: var(--btn-bg);
-    color: var(--primary-dark);
-    border: none;
-    padding: 0.6rem 1.2rem;
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1.5rem;
     border-radius: 4px;
+    font-weight: bold;
     cursor: pointer;
-    font-weight: 700;
-    transition: background 0.2s;
 }
 
-.btn:hover, .btn.active {
-    background-color: var(--accent-blue);
-    color: #ffffff;
+.btn.active, .btn:hover {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 .course-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
 .course-card {
     padding: 1rem;
-    border-radius: 4px;
+    border-radius: 6px;
     text-align: center;
-    font-weight: 700;
-    background-color: #ffffff;
-    color: var(--primary-dark);
-    border: 1px solid #ddd;
+    font-weight: bold;
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 .course-card.completed {
-    background-color: var(--completed-bg);
-    color: var(--completed-text);
+    background-color: var(--card-completed);
+    color: #0f5132;
 }
 
-.course-card.incomplete {
-    background-color: #ffffff;
-    color: var(--primary-dark);
+.course-card.pending {
+    background-color: var(--card-pending);
+    color: #842029;
 }
 
 .credit-total {
     text-align: center;
-    font-weight: 700;
-    margin-top: 1.25rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 1rem;
 }
 
 footer {
-    background-color: var(--primary-dark);
-    color: #f1faee;
+    background-color: var(--primary-color);
+    color: white;
     text-align: center;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem;
     margin-top: 2rem;
 }
 
@@ -193,9 +170,10 @@ footer {
 }
 
 .social-links a {
-    color: #f1faee;
+    color: white;
+    transition: transform 0.2s;
 }
 
 .social-links a:hover {
-    color: #a8dadc;
+    transform: scale(1.1);
 }

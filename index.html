@@ -7,17 +7,17 @@
     <meta name="description" content="Course home page for Timothy Ebil in WDD 231: Web Frontend Development II, showcasing responsive design, CSS grids/flexbox, and dynamic JavaScript rendering.">
     <meta name="author" content="Timothy Ebil">
     
-    <!-- Verified Standard Google Fonts Endpoint Strings -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Fonts API Links -->
+    <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
     
-    <!-- JavaScript Files (Deferred) -->
+    <!-- JavaScript Engines -->
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/date.js" defer></script>
     <script src="scripts/course.js" defer></script>
@@ -25,7 +25,7 @@
 <body>
     <header>
         <div class="header-container">
-            <svg class="logo" viewBox="0 0 100 100" width="45" height="45" xmlns="http://www.w3.org/2000/svg" aria-label="Timothy Ebil Personal Brand Logo">
+            <svg class="logo" viewBox="0 0 100 100" width="45" height="45" xmlns="http://w3.org" aria-label="Timothy Ebil Logo">
                 <rect width="100" height="100" rx="15" fill="#1d3557"/>
                 <path d="M30 30 L15 50 L30 70" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M70 30 L85 50 L70 70" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -35,7 +35,7 @@
         </div>
         <button id="menuButton" aria-label="Toggle Menu">☰</button>
         <nav id="animNav">
-            <a href="#" class="active">Home</a>
+            <a href="#" class="active" aria-current="page">Home</a>
             <a href="chamber/index.html">Chamber Project</a>
             <a href="project/index.html">Final Project</a>
         </nav>
@@ -43,22 +43,16 @@
     <main>
         <h1>Home</h1>
         <div class="grid-container">
-            <!-- About Me Block -->
             <section class="card-section about-card">
                 <h2>About Me</h2>
                 <p>Hello! I am Timothy Ebil, a dedicated frontend developer currently charting clean responsive frameworks in Web Frontend Development II. Based in Uganda, I build highly efficient web structures optimized to pass critical web standards and access parameter rules. My academic and technical concentrations merge semantic layout architecture, structural CSS logic loops, and interactive vanilla JavaScript engines into responsive solutions that look impeccable across all mobile and desktop viewports.</p>
             </section>
-            
-            <!-- Photo Profile Box -->
             <section class="card-section photo-card">
                 <h2>Student Photo</h2>
                 <div class="photo-placeholder">
-                    <!-- Targeted Structural Reference Image Path -->
                     <img class="profile-img" src="images/profile.webp" alt="Timothy Ebil portrait" width="200" height="200" loading="lazy">
                 </div>
             </section>
-            
-            <!-- Certificate Dynamic Filters Section -->
             <section class="card-section course-card-section">
                 <h2>Web Certificate Courses</h2>
                 <div class="filter-buttons">
@@ -66,9 +60,7 @@
                     <button id="btnCse" class="btn">CSE</button>
                     <button id="btnWdd" class="btn">WDD</button>
                 </div>
-                <div id="courseDisplay" class="course-grid">
-                    <!-- Dynamic course items injected here via course.js -->
-                </div>
+                <div id="courseDisplay" class="course-grid"></div>
                 <p class="credit-total">The total credits for courses listed above is: <span id="totalCredits">0</span></p>
             </section>
         </div>
@@ -81,7 +73,7 @@
             <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub Repository">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
             </a>
-            <a href="https://x.com" target="_blank" rel="noopener" aria-label="X Profile">
+            <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (formerly Twitter) Profile">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
         </div>
@@ -90,4 +82,3 @@
     </footer>
 </body>
 </html>
- 

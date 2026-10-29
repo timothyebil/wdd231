@@ -1,4 +1,4 @@
-@media stroke, screen and (min-width: 640px) {
+@media screen and (min-width: 640px) {
     #menuButton {
         display: none;
     }

@@ -21,7 +21,6 @@
         padding: 1rem 1.25rem;
     }
 
-    /* Arranges the layout fields using grids matching the screenshot */
     .grid-container {
         display: grid;
         grid-template-columns: 2fr 1fr;

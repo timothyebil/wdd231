@@ -1,5 +1,5 @@
-// Dynamic copyright configuration updates
+// Populate the copyright year field dynamically
 document.getElementById('currentyear').textContent = new Date().getFullYear();
 
-// Display dynamic date string for documentation version status tracking
-document.getElementById('lastModified').innerHTML = `Last Modification: ${document.lastModified}`;
+// Populate document version history modified metadata timestamp properties
+document.getElementById('lastModified').textContent = `Last Modification: ${document.lastModified}`;

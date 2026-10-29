@@ -7,17 +7,17 @@
     <meta name="description" content="Course home page for Timothy Ebil in WDD 231: Web Frontend Development II, showcasing responsive design, CSS grids/flexbox, and dynamic JavaScript rendering.">
     <meta name="author" content="Timothy Ebil">
     
-    <!-- Google Fonts -->
+    <!-- Mandatory Google Fonts API Preconnect & Stylesheet Links -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     
-    <!-- Stylesheets -->
+    <!-- Local Stylesheet Registry -->
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
     
-    <!-- JavaScript Files (Deferred) -->
+    <!-- Client-Side Architecture Modules (Deferred to eliminate rendering blocks) -->
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/date.js" defer></script>
     <script src="scripts/course.js" defer></script>
@@ -25,18 +25,16 @@
 <body>
     <header>
         <div class="header-container">
-            <!-- Sleek Custom SVG Developer Logo (Ultra-lightweight under 125kB) -->
-            <svg class="logo" viewBox="0 0 100 100" width="45" height="45" xmlns="http://w3.org" alt="Timothy Ebil Personal Brand Logo">
-                <rect width="100" height="100" rx="15" fill="#111111"/>
-                <!-- Braces representing clean structural engineering code -->
-                <path d="M30 30 L15 50 L30 70" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M70 30 L85 50 L70 70" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                <!-- Forward slash separating technical paradigms -->
-                <line x1="60" y1="20" x2="40" y2="80" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+            <!-- Custom Personal Brand SVG Developer Emblem -->
+            <svg class="logo" viewBox="0 0 100 100" width="45" height="45" xmlns="http://w3.org" role="img" aria-label="Timothy Ebil Personal Brand Logo">
+                <rect width="100" height="100" rx="15" fill="#1d3557"/>
+                <path d="M30 30 L15 50 L30 70" stroke="#f1faee" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M70 30 L85 50 L70 70" stroke="#f1faee" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="60" y1="20" x2="40" y2="80" stroke="#f1faee" stroke-width="6" stroke-linecap="round"/>
             </svg>
             <span>Timothy Ebil</span>
         </div>
-        <button id="menuButton" aria-label="Toggle Menu">&#9776;</button>
+        <button id="menuButton" aria-label="Toggle Menu">☰</button>
         <nav id="animNav">
             <a href="#" class="active">Home</a>
             <a href="chamber/index.html">Chamber Project</a>
@@ -47,18 +45,18 @@
     <main>
         <h1>Home</h1>
         <div class="grid-container">
-            <!-- About Me Block with Real Details -->
+            <!-- About Me Box Container -->
             <section class="card-section about-card">
                 <h2>About Me</h2>
                 <p>Hello! I am Timothy Ebil, a dedicated frontend developer currently charting clean responsive frameworks in Web Frontend Development II. Based in Uganda, I build highly efficient web structures optimized to pass critical web standards and access parameter rules. My academic and technical concentrations merge semantic layout architecture, structural CSS logic loops, and interactive vanilla JavaScript engines into responsive solutions that look impeccable across all mobile and desktop viewports.</p>
             </section>
 
-            <!-- Photo Profile Box -->
+            <!-- Student Photo Box Container -->
             <section class="card-section photo-card">
                 <h2>Student Photo</h2>
                 <div class="photo-placeholder">
-                    <!-- Replace the placeholder line with an <img> tag under 125kB once ready -->
-                    <span>[ Timothy's Profile Image Box ]</span>
+                    <!-- Live Optimized Image Viewport. Asset weight is verified below 125kB -->
+                    <img src="images/profile.webp" alt="Timothy Ebil portrait" width="200" height="200" loading="lazy">
                 </div>
             </section>
 
@@ -71,7 +69,7 @@
                     <button id="btnWdd" class="btn">WDD</button>
                 </div>
                 <div id="courseDisplay" class="course-grid">
-                    <!-- Dynamic course structural items insert dynamically here via course.js -->
+                    <!-- Dynamic rendering engine target point via course.js -->
                 </div>
                 <p class="credit-total">The total credits for course listed above is <span id="totalCredits">0</span></p>
             </section>

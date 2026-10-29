@@ -1,13 +1,13 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f1faee; /* Soft canvas tone */
-    color: #1d3557; /* Navy blue primary text */
+    background-color: #f1faee;
+    color: #1d3557;
     padding: 0;
     margin: 0;
 }
 
 header {
-    background-color: #1d3557; /* Deep blue header */
+    background-color: #1d3557;
     color: #f1faee;
     display: flex;
     flex-direction: column;
@@ -57,8 +57,8 @@ nav a {
 }
 
 nav a:hover, nav a.active {
-    background-color: #457b9d; /* Accent steel blue */
-    font-weight: bold;
+    background-color: #457b9d;
+    font-weight: 700;
 }
 
 main {
@@ -80,7 +80,7 @@ h1 {
 }
 
 .card-section {
-    background: #ffffff;
+    background-color: #ffffff;
     border: 1px solid #457b9d;
     border-radius: 6px;
     overflow: hidden;
@@ -105,7 +105,6 @@ h1 {
     text-align: justify;
 }
 
-/* Image frame logic preventing CLS shifts */
 .photo-placeholder {
     height: 250px;
     background-color: #e2eafc;
@@ -125,7 +124,6 @@ h1 {
     display: block;
 }
 
-/* Certificate Area Interaction Design */
 .filter-buttons {
     display: flex;
     flex-direction: row;
@@ -168,10 +166,8 @@ h1 {
     text-align: center;
     font-weight: bold;
     border-radius: 4px;
-    transition: transform 0.2s;
 }
 
-/* Clear typographic contrast states */
 .course-item.completed {
     background-color: #1d3557;
     color: #ffffff;
@@ -192,7 +188,6 @@ h1 {
     color: #1d3557;
 }
 
-/* Footer Assembly */
 footer {
     background-color: #1d3557;
     color: #f1faee;

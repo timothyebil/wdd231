@@ -1,5 +1,5 @@
-// Populate the copyright year field dynamically
+// Output current year parameter securely 
 document.getElementById('currentyear').textContent = new Date().getFullYear();
 
-// Populate document version history modified metadata timestamp properties
+// Output dynamic document specification modification logs
 document.getElementById('lastModified').textContent = `Last Modification: ${document.lastModified}`;

@@ -20,7 +20,7 @@ function displayCourses(filteredList) {
         courseDisplay.appendChild(item);
     });
 
-    // Compute credit accumulation total sums via higher-order reduce array methods
+    // Reduce calculated state parameters using deterministic array loop aggregation
     const sum = filteredList.reduce((acc, current) => acc + current.credits, 0);
     totalCreditsSpan.textContent = sum;
 }
@@ -45,5 +45,5 @@ document.getElementById('btnWdd').addEventListener('click', (e) => {
     displayCourses(courses.filter(c => c.subject === 'WDD'));
 });
 
-// Run default array compilation sequence loop on application setup initialization
+// Run initial programmatic layout compile routine
 displayCourses(courses);

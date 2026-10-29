@@ -80,7 +80,7 @@ h1 {
 }
 
 .card-section {
-    background-color: #ffffff;
+    background: #ffffff;
     border: 1px solid #457b9d;
     border-radius: 6px;
     overflow: hidden;

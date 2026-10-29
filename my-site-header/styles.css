@@ -1,0 +1,152 @@
+/* --- Core Graphic Brand Tokens --- */
+:root {
+    --primary-color: #1e293b;   /* Deep Slate Blue - Background foundation */
+    --accent-color: #0ea5e9;    /* Bright Sky Teal - Focal interactions */
+    --text-light: #f8fafc;      /* Clean Off-White - Inverted contrast readability */
+    --text-dark: #334155;       /* Charcoal - Mobile navigation text */
+    --nav-bg-mobile: #ffffff;   /* Pure White - Mobile drawer isolation surface */
+    --transition-speed: 0.3s;   /* Global animation performance baseline */
+}
+
+/* --- Document Normalization --- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #f1f5f9;
+}
+
+/* --- Mobile-First Layout Structure (CSS Grid implementation) --- */
+header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 14px 24px;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative; /* Context anchor for absolute positioning of child dropdowns */
+    z-index: 100;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    display: block;
+}
+
+.site-name {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: -0.5px;
+}
+
+/* --- Mobile Interactive Interface Toggle Link --- */
+#menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-light);
+    padding: 4px;
+    line-height: 1;
+    transition: color var(--transition-speed) ease;
+}
+
+#menu-btn:hover {
+    color: var(--accent-color);
+}
+
+/* --- Smooth Transition Dropdown Layout Architecture --- */
+nav {
+    grid-column: 1 / -1; /* Spans across entire row space when forced down */
+    
+    /* Animation Base Setup */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--nav-bg-mobile);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    
+    /* Hidden State (Avoid using display:none to protect transition availability) */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity var(--transition-speed) ease,
+                transform var(--transition-speed) ease,
+                visibility var(--transition-speed) ease;
+}
+
+/* --- Visual Open Activation Modifier Rule --- */
+nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+nav ul {
+    list-style: none;
+    padding: 8px 24px;
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 14px 0;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid #f1f5f9;
+    transition: color var(--transition-speed) ease;
+}
+
+nav ul li:last-child a {
+    border-bottom: none;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Desktop Presentation Layer Restructuring (Viewport width scales past 768px) --- */
+@media (min-width: 768px) {
+    header {
+        grid-template-columns: auto auto 1fr; /* Rearranges element sequence tracks */
+    }
+
+    #menu-btn {
+        display: none; /* Safely hides mobile toggle button */
+    }
+
+    /* Reset absolute mobile positioning context variables to baseline inline layout values */
+    nav {
+        position: static;
+        grid-column: auto;
+        background-color: transparent;
+        box-shadow: none;
+        
+        /* Forces structural presentation visibility overrides safely bypassing active toggle flags */
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    nav ul {
+        display: flex;
+        gap: 28px;
+        padding: 0;
+        justify-content: flex-end;
+    }
+
+    nav ul li a {
+        padding: 0;
+        color: var(--text-light);
+        border-bottom: none;
+    }
+    
+    nav ul li a:hover {
+        color: var(--accent-color);
+    }
+}

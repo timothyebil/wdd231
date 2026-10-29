@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD231 Site Header - Timothy Ebil</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <!-- 1. SVG Graphic Logo -->
+        <div class="logo-container">
+            <svg xmlns="http://w3.org" viewBox="0 0 100 100" class="logo">
+                <circle cx="50" cy="50" r="45" fill="#0ea5e9" />
+                <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="700" font-family="sans-serif">TE</text>
+            </svg>
+        </div>
+
+        <!-- 2. Site Identification Title -->
+        <h1 class="site-name">Timothy Ebil</h1>
+
+        <!-- 3. Accessible Interactive Mobile Button Toggle -->
+        <button id="menu-btn" aria-label="Toggle Navigation Menu">&#9776;</button>
+
+        <!-- 4. Global Navigation Structure Links -->
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Content anchor placeholder to observe scroll interactions -->
+    <main style="padding: 40px 24px; color: #334155;">
+        <h2>Welcome to my site</h2>
+        <p>This layout uses CSS Grid for responsive positioning and vanilla JavaScript for interactivity.</p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

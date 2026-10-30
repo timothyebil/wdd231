@@ -5,7 +5,6 @@ const courses = [
         title: 'Introduction to Programming',
         credits: 2,
         certificate: 'Web and Computer Programming',
-        description: 'This course introduces development using basic structures, conditional testing logic, and simple loops.',
         completed: true
     },
     {
@@ -14,7 +13,6 @@ const courses = [
         title: 'Web Fundamentals',
         credits: 2,
         certificate: 'Web and Computer Programming',
-        description: 'This course introduces designing web page architectures using valid semantic HTML elements and CSS layouts.',
         completed: true
     },
     {
@@ -23,7 +21,6 @@ const courses = [
         title: 'Programming with Classes',
         credits: 2,
         certificate: 'Web and Computer Programming',
-        description: 'This course covers encapsulation, inheritance structures, and abstract programming patterns using modern languages.',
         completed: true
     },
     {
@@ -32,7 +29,6 @@ const courses = [
         title: 'Dynamic Web Visualizations',
         credits: 2,
         certificate: 'Web and Computer Programming',
-        description: 'This course focuses on dynamic server interaction models, multi-viewport styling grids, and data payloads.',
         completed: true
     },
     {
@@ -41,7 +37,6 @@ const courses = [
         title: 'Web Frontend Development II',
         credits: 3,
         certificate: 'Web Frontend Development',
-        description: 'Advanced production focuses targeting modular architecture modules, external API fetches, and validation parameters.',
         completed: false
     },
     {
@@ -50,7 +45,6 @@ const courses = [
         title: 'Applied Programming Patterns',
         credits: 3,
         certificate: 'Web and Computer Programming',
-        description: 'Structural architecture implementation centering on security protocols and engineering workflow parameters.',
         completed: false
     }
 ];

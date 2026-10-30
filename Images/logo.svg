@@ -1,0 +1,17 @@
+<svg viewBox="0 0 100 100" width="45" height="45" xmlns="http://w3.org" role="img" aria-label="SykWay Orbit Logo">
+    <!-- Outer Orbit Saturation Ring -->
+    <ellipse cx="50" y1="50" rx="38" ry="14" fill="none" stroke="#f1faee" stroke-width="4" transform="rotate(-25 50 50)" stroke-linecap="round"/>
+    
+    <!-- Central Planetary Body Sphere Layer -->
+    <circle cx="50" cy="50" r="22" fill="#1d3557" stroke="#f1faee" stroke-width="4"/>
+    
+    <!-- Core Surface Continent Contours -->
+    <path d="M40 42 C 45 40, 48 48, 55 45 C 58 43, 62 48, 65 42" fill="none" stroke="#f1faee" stroke-width="3" stroke-linecap="round"/>
+    <path d="M36 54 C 42 56, 46 50, 52 55 C 58 58, 60 52, 64 54" fill="none" stroke="#f1faee" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Background Spark Elements (Stellar Accents) -->
+    <polygon points="22,28 24,24 28,22 24,20 22,16 20,20 16,22 20,24" fill="#f1faee"/>
+    <polygon points="78,72 80,68 84,66 80,64 78,60 76,64 72,66 76,68" fill="#f1faee"/>
+    <circle cx="76" cy="30" r="2" fill="#f1faee"/>
+    <circle cx="26" cy="70" r="1.5" fill="#f1faee"/>
+</svg>

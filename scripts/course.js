@@ -1,49 +1,108 @@
 const courses = [
-    { subject: 'CSE', number: 110, title: 'Intro to Programming', credits: 2, completed: true },
-    { subject: 'WDD', number: 130, title: 'Web Fundamentals', credits: 2, completed: true },
-    { subject: 'CSE', number: 111, title: 'Programming Blocks', credits: 3, completed: false },
-    { subject: 'CSE', number: 210, title: 'Programming with Classes', credits: 4, completed: true },
-    { subject: 'WDD', number: 131, title: 'Dynamic Web Fundamentals', credits: 3, completed: true },
-    { subject: 'WDD', number: 231, title: 'Web Frontend Development II', credits: 3, completed: false }
+    {
+        subject: 'CSE',
+        number: 110,
+        title: 'Introduction to Programming',
+        credits: 2,
+        certificate: 'Web and Computer Programming',
+        description: 'This course introduces development using basic structures, conditional testing logic, and simple loops.',
+        completed: true
+    },
+    {
+        subject: 'WDD',
+        number: 130,
+        title: 'Web Fundamentals',
+        credits: 2,
+        certificate: 'Web and Computer Programming',
+        description: 'This course introduces designing web page architectures using valid semantic HTML elements and CSS layouts.',
+        completed: true
+    },
+    {
+        subject: 'CSE',
+        number: 210,
+        title: 'Programming with Classes',
+        credits: 2,
+        certificate: 'Web and Computer Programming',
+        description: 'This course covers encapsulation, inheritance structures, and abstract programming patterns using modern languages.',
+        completed: true
+    },
+    {
+        subject: 'WDD',
+        number: 131,
+        title: 'Dynamic Web Visualizations',
+        credits: 2,
+        certificate: 'Web and Computer Programming',
+        description: 'This course focuses on dynamic server interaction models, multi-viewport styling grids, and data payloads.',
+        completed: true
+    },
+    {
+        subject: 'WDD',
+        number: 231,
+        title: 'Web Frontend Development II',
+        credits: 3,
+        certificate: 'Web Frontend Development',
+        description: 'Advanced production focuses targeting modular architecture modules, external API fetches, and validation parameters.',
+        completed: false
+    },
+    {
+        subject: 'CSE',
+        number: 310,
+        title: 'Applied Programming Patterns',
+        credits: 3,
+        certificate: 'Web and Computer Programming',
+        description: 'Structural architecture implementation centering on security protocols and engineering workflow parameters.',
+        completed: false
+    }
 ];
 
-const courseDisplay = document.getElementById('courseDisplay');
-const totalCreditsSpan = document.getElementById('totalCredits');
+document.addEventListener("DOMContentLoaded", () => {
+    const courseDisplay = document.getElementById("courseDisplay");
+    const totalCreditsSpan = document.getElementById("totalCredits");
+    const btnAll = document.getElementById("btnAll");
+    const btnCse = document.getElementById("btnCse");
+    const btnWdd = document.getElementById("btnWdd");
 
-function displayCourses(filteredList) {
-    courseDisplay.innerHTML = '';
-    
-    filteredList.forEach(course => {
-        const item = document.createElement('div');
-        item.className = `course-item ${course.completed ? 'completed' : 'incomplete'}`;
-        item.innerHTML = `<span>${course.subject} ${course.number}</span>`;
-        courseDisplay.appendChild(item);
+    function displayCourses(filteredCourses) {
+        if (!courseDisplay) return;
+        courseDisplay.innerHTML = "";
+
+        filteredCourses.forEach(course => {
+            const courseCard = document.createElement("div");
+            courseCard.classList.add("course-card");
+            courseCard.classList.add(course.completed ? "completed" : "incomplete");
+
+            courseCard.innerHTML = `
+                <h3>${course.subject} ${course.number}</h3>
+                <p class="course-title">${course.title}</p>
+            `;
+            courseDisplay.appendChild(courseCard);
+        });
+
+        const totalCredits = filteredCourses.reduce((sum, course) => sum + course.credits, 0);
+        if (totalCreditsSpan) {
+            totalCreditsSpan.textContent = totalCredits;
+        }
+    }
+
+    function updateActiveButton(activeBtn) {
+        [btnAll, btnCse, btnWdd].forEach(btn => btn?.classList.remove("active"));
+        activeBtn?.classList.add("active");
+    }
+
+    btnAll?.addEventListener("click", () => {
+        displayCourses(courses);
+        updateActiveButton(btnAll);
     });
 
-    // Reduce calculated state parameters using deterministic array loop aggregation
-    const sum = filteredList.reduce((acc, current) => acc + current.credits, 0);
-    totalCreditsSpan.textContent = sum;
-}
+    btnCse?.addEventListener("click", () => {
+        displayCourses(courses.filter(c => c.subject === "CSE"));
+        updateActiveButton(btnCse);
+    });
 
-function updateActiveButton(targetButton) {
-    document.querySelectorAll('.filter-buttons .btn').forEach(btn => btn.classList.remove('active'));
-    targetButton.classList.add('active');
-}
+    btnWdd?.addEventListener("click", () => {
+        displayCourses(courses.filter(c => c.subject === "WDD"));
+        updateActiveButton(btnWdd);
+    });
 
-document.getElementById('btnAll').addEventListener('click', (e) => {
-    updateActiveButton(e.target);
     displayCourses(courses);
 });
-
-document.getElementById('btnCse').addEventListener('click', (e) => {
-    updateActiveButton(e.target);
-    displayCourses(courses.filter(c => c.subject === 'CSE'));
-});
-
-document.getElementById('btnWdd').addEventListener('click', (e) => {
-    updateActiveButton(e.target);
-    displayCourses(courses.filter(c => c.subject === 'WDD'));
-});
-
-// Run initial programmatic layout compile routine
-displayCourses(courses);

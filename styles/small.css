@@ -4,10 +4,10 @@
     --accent-color: #e63946;
     --bg-light: #f8f9fa;
     --text-dark: #1d3557;
-    --completed-bg: #e2f0d9;
-    --completed-border: #385723;
-    --incomplete-bg: #fff2cc;
-    --incomplete-border: #b4c6e7;
+    --completed-bg: #d8f3dc;
+    --completed-border: #2d6a4f;
+    --incomplete-bg: #fcd5ce;
+    --incomplete-border: #9b2226;
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

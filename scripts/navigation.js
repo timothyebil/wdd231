@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const animNav = document.getElementById("animNav");
 
     if (menuButton && animNav) {
+        // Explicit initial state configuration for clean accessibility checking
+        menuButton.setAttribute("aria-expanded", "false");
+
         menuButton.addEventListener("click", () => {
             animNav.classList.toggle("open");
             

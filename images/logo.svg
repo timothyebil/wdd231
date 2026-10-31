@@ -1,16 +1,38 @@
-<svg viewBox="0 0 100 100" width="45" height="45" xmlns="http://w3.org" role="img" aria-label="SykWay Orbit Logo">
-    <!-- Outer Orbit Ring -->
-    <ellipse cx="50" cy="50" rx="36" ry="12" fill="none" stroke="#f1faee" stroke-width="4" transform="rotate(-25 50 50)" stroke-linecap="round"/>
+<svg xmlns="http://w3.org" viewBox="0 0 100 100" width="100%" height="100%">
+    <style>
+        .logo-bg-core { 
+            fill: #e63946; 
+            transition: fill 0.3s ease;
+        }
+        .logo-orbit-ring { 
+            fill: none; 
+            stroke: #457b9d; 
+            stroke-width: 4; 
+        }
+        .logo-initials-text {
+            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            fill: #ffffff;
+            text-anchor: middle;
+            dominant-baseline: central;
+            user-select: none;
+        }
+        /* Pulse interaction sequence localized within vector constraints */
+        svg:hover .logo-bg-core {
+            fill: #1d3557;
+        }
+    </style>
+
+    <!-- Central Planet Core -->
+    <circle cx="50" cy="50" r="22" class="logo-bg-core" />
     
-    <!-- Central Planetary Body Sphere -->
-    <circle cx="50" cy="50" r="20" fill="#1d3557" stroke="#f1faee" stroke-width="4"/>
+    <!-- Orbital Ring Track Path Layer -->
+    <ellipse cx="50" cy="50" rx="42" ry="12" class="logo-orbit-ring" transform="rotate(-25 50 50)" />
     
-    <!-- Surface Contours -->
-    <path d="M42 45 C 46 43, 48 47, 54 44" fill="none" stroke="#f1faee" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M38 55 C 44 57, 46 52, 52 56" fill="none" stroke="#f1faee" stroke-width="2.5" stroke-linecap="round"/>
-    
-    <!-- Orbiting Satellite and Stellar Elements -->
-    <circle cx="78" cy="32" r="3" fill="#f1faee"/>
-    <polygon points="25,25 27,21 31,19 27,17 25,13 23,17 19,19 23,21" fill="#f1faee"/>
-    <circle cx="72" cy="72" r="1.5" fill="#f1faee"/>
+    <!-- Satellite Intersect Node -->
+    <circle cx="84" cy="34" r="6" fill="#1d3557" />
+
+    <!-- Center-Aligned Initials Text Node -->
+    <text x="50" y="50" class="logo-initials-text">TE</text>
 </svg>

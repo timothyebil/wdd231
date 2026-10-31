@@ -1,3 +1,7 @@
+/* ==========================================================================
+   WDD 231 Course Portal - Mobile & Tablet Core Stylesheet
+   ========================================================================== */
+
 :root {
     --primary-color: #1d3557;
     --secondary-color: #457b9d;
@@ -11,6 +15,7 @@
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* --- Base Resets & Typography --- */
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
@@ -19,6 +24,7 @@ body {
     padding: 0;
 }
 
+/* --- Header System & Branding Layout --- */
 header {
     background-color: var(--primary-color);
     color: #ffffff;
@@ -32,6 +38,7 @@ header {
     display: flex;
     align-items: center;
     gap: 1rem;
+    cursor: pointer;
 }
 
 .header-container span {
@@ -39,13 +46,21 @@ header {
     font-weight: 700;
 }
 
-/* Fix external SVG rendering size bugs */
+/* Fixed Vector Dimension Bounds */
 .logo {
     width: 45px;
     height: 45px;
     object-fit: contain;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
 }
 
+/* SykWay Orbit Logo Micro-Interaction Trigger */
+.header-container:hover .logo {
+    transform: rotate(360deg);
+}
+
+/* --- Responsive Menu Button Interactivity --- */
 #menuButton {
     position: absolute;
     right: 1rem;
@@ -55,17 +70,42 @@ header {
     color: #ffffff;
     font-size: 1.8rem;
     cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+    z-index: 10;
 }
 
+/* --- Navigation Link Systems --- */
 #animNav {
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: 0;
+    
+    /* Collapsed Initial Layout Metrics */
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    overflow: hidden;
+    
+    /* Smooth Transition Interpolations */
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                transform 0.3s ease,
+                margin-top 0.3s ease;
+}
+
+/* Expanded Toggled Responsive Active State */
+#animNav.open {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
     margin-top: 1rem;
 }
 
-#animNav.open {
-    display: flex;
+/* Rotates Hamburger Button into active state layout accent */
+#animNav.open ~ #menuButton {
+    transform: rotate(180deg);
+    color: var(--accent-color);
 }
 
 #animNav a {
@@ -80,6 +120,7 @@ header {
     background-color: var(--secondary-color);
 }
 
+/* --- Main Layout Grid Framework --- */
 main {
     padding: 1rem;
     max-width: 1200px;
@@ -99,6 +140,7 @@ h1 {
     gap: 1.5rem;
 }
 
+/* --- Content Blocks & Visual Cards --- */
 .card-section {
     background: var(--bg-light);
     border: 1px solid #e0e0e0;
@@ -129,6 +171,7 @@ h1 {
     box-shadow: var(--card-shadow);
 }
 
+/* --- Dynamic Filter Button Interactors --- */
 .filter-buttons {
     display: flex;
     justify-content: center;
@@ -151,6 +194,7 @@ h1 {
     background-color: var(--primary-color);
 }
 
+/* --- Dynamic Course Cards Layout Grid --- */
 .course-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -190,6 +234,7 @@ h1 {
     font-size: 1.1rem;
 }
 
+/* --- Document Footer --- */
 footer {
     background-color: var(--primary-color);
     color: white;
@@ -212,4 +257,58 @@ footer {
 
 .social-links a:hover {
     color: var(--accent-color);
+}
+
+/* ==========================================================================
+   Tablet Media Query Overrides (Viewports above 640px)
+   ========================================================================== */
+@media screen and (min-width: 640px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    #menuButton {
+        display: none;
+    }
+
+    #animNav {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        margin-top: 0;
+        max-height: none;
+        opacity: 1;
+        transform: none;
+        overflow: visible;
+    }
+
+    #animNav a {
+        border-top: none;
+        border-radius: 4px;
+        margin-left: 0.5rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .grid-container {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .about-card {
+        grid-column: 1 / 2;
+    }
+
+    .photo-card {
+        grid-column: 2 / 3;
+    }
+
+    .course-card-section {
+        grid-column: 1 / 3;
+    }
+
+    .course-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }

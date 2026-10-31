@@ -39,6 +39,13 @@ header {
     font-weight: 700;
 }
 
+/* Fix external SVG rendering size bugs */
+.logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
 #menuButton {
     position: absolute;
     right: 1rem;

@@ -1,0 +1,143 @@
+/* Core Page Architecture & Mockup Matching Colors */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #dfdfdf;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 0.75rem 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  color: #3f4e8f;
+  font-size: 2.25rem;
+  margin: 0;
+  font-family: Georgia, serif;
+}
+
+/* Consolidated Interaction Control Bar */
+.controls-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background-color: #cbd0e7;
+  padding: 15px;
+  border-bottom: 1px solid #7d84b2;
+}
+
+.filter-group, .layout-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.controls-bar button {
+  background-color: #ffffff;
+  color: #3f4e8f;
+  border: 1px solid #7d84b2;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.controls-bar button:hover, .controls-bar button.active {
+  background-color: #3f4e8f;
+  color: #ffffff;
+}
+
+/* Fluid Auto-Fit Columns (Zero Mobile Media Queries Required) */
+#cards.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+  padding: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Column Flex List Alternative View */
+#cards.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+/* Card Visual Units matching Mockups */
+section {
+  background-color: #cbd0e7;
+  border: 1px solid #7d84b2;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #3f4e8f;
+  margin: 0 0 10px 0;
+  font-size: 1.6rem;
+  font-family: Georgia, serif;
+}
+
+p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #222222;
+}
+
+/* Portrait Image Drop Shadow Treatment */
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
+  border: 1px solid #333;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+  background-color: #eeeeee;
+}
+
+/* Desktop Presentation Extensions */
+@media (min-width: 650px) {
+  .controls-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: transparent;
+    border-bottom: none;
+  }
+
+  #cards.list-view section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  #cards.list-view img {
+    margin-top: 0;
+    max-height: 100px;
+    width: auto;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #3f4e8f;
+  color: white;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+}

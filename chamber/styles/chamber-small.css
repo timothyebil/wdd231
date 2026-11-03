@@ -1,0 +1,307 @@
+:root {
+    --primary-brand: #1d3557;
+    --secondary-brand: #457b9d;
+    --accent-red: #e63946;
+    --neutral-light: #f8f9fa;
+    --text-charcoal: #2b2d42;
+    --shadow-subtle: 0 4px 8px rgba(0, 0, 0, 0.06);
+    
+    --gold-bg: #fff3cd;
+    --gold-border: #ffc107;
+    --silver-bg: #e2e3e5;
+    --silver-border: #6c757d;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-charcoal);
+    background-color: #f1f5f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Global Navigation Header Architecture --- */
+header {
+    background-color: var(--primary-brand);
+    color: #ffffff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.brand-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-text h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+}
+
+.brand-text span {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.site-logo {
+    transition: transform 0.6s ease;
+}
+
+.brand-group:hover .site-logo {
+    transform: rotate(360deg);
+}
+
+#navToggle {
+    position: absolute;
+    right: 1rem;
+    top: 1.3rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#primaryNav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    margin-top: 0;
+}
+
+#primaryNav.open {
+    max-height: 250px;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+#primaryNav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#primaryNav a:hover, #primaryNav a.active {
+    background-color: var(--secondary-brand);
+}
+
+/* --- Core Control Panel Presentation Layout --- */
+main {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.directory-control-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-subtle);
+}
+
+.directory-control-bar h2 { margin: 0; color: var(--primary-brand); }
+
+.toggle-btn {
+    background: #e2e8f0;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    color: var(--primary-brand);
+    margin: 0 0.25rem;
+    transition: background 0.2s ease;
+}
+
+.toggle-btn.active {
+    background: var(--secondary-brand);
+    color: white;
+}
+
+/* ==========================================================================
+   Display System Layout Modifiers (Grid Card Presentation Rules)
+   ========================================================================== */
+.grid-mode {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.directory-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #e2e8f0;
+}
+
+.grid-mode .directory-card {
+    text-align: center;
+    align-items: center;
+}
+
+.card-image-box {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.card-image-box img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.grid-mode .company-details {
+    margin-top: auto;
+    text-align: left;
+    width: 100%;
+    font-size: 0.9rem;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+}
+
+.company-tagline {
+    font-style: italic;
+    color: #64748b;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.company-web-link a {
+    color: var(--secondary-brand);
+    text-decoration: none;
+}
+
+.membership-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.tier-gold { background: var(--gold-bg); border: 1px solid var(--gold-border); color: #856404; }
+.tier-silver { background: var(--silver-bg); border: 1px solid var(--silver-border); color: #383d41; }
+.tier-member { background: #e1f5fe; border: 1px solid #b3e5fc; color: #0288d1; }
+
+/* ==========================================================================
+   Display System Layout Modifiers (List Row Presentation Rules)
+   ========================================================================== */
+.list-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.list-mode .directory-card {
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+/* Completely strip media images and badges in list view to meet rubric rules */
+.list-mode .card-image-box,
+.list-mode .company-tagline,
+.list-mode .membership-badge {
+    display: none !important; 
+}
+
+.list-mode .directory-card h3 { margin: 0 0 0.5rem 0; color: var(--primary-brand); }
+.list-mode .company-details p { margin: 0.25rem 0; font-size: 0.95rem; }
+
+/* --- Global Structural Footer --- */
+footer {
+    background-color: var(--primary-brand);
+    color: #ffffff;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.footer-contact { border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+.footer-contact h3 { margin: 0 0 0.5rem 0; }
+.footer-contact a { color: #93c5fd; text-decoration: none; }
+.footer-dev-meta p { margin: 0.4rem 0; font-size: 0.9rem; color: #cbd5e1; }
+
+/* ==========================================================================
+   Tablet Breakpoint Overrides (Viewports above 640px)
+   ========================================================================== */
+@media screen and (min-width: 640px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    #navToggle { display: none; }
+
+    #primaryNav {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        max-height: none;
+        opacity: 1;
+        margin-top: 0;
+        overflow: visible;
+    }
+
+    #primaryNav a {
+        border-top: none;
+        margin-left: 0.5rem;
+        border-radius: 4px;
+        padding: 0.5rem 1rem;
+    }
+
+    .directory-control-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1.25rem 2rem;
+    }
+
+    .grid-mode {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .list-mode .directory-card {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .list-mode .directory-card h3 {
+        flex: 1;
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    .list-mode .company-details {
+        display: flex;
+        flex: 2;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .list-mode .company-details p { margin: 0; }
+}

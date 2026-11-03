@@ -1,0 +1,6 @@
+<svg xmlns="http://w3.org" viewBox="0 0 200 100" width="100%" height="100%">
+    <rect width="200" height="100" rx="8" fill="#f8f9fa"/>
+    <path d="M30,65 C70,25 110,75 170,30" fill="none" stroke="#457b9d" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="170" cy="30" r="8" fill="#e63946"/>
+    <text x="100" y="85" font-family="'Roboto', sans-serif" font-size="14" font-weight="700" fill="#1d3557" text-anchor="middle">NILE AGRI HUB</text>
+</svg>

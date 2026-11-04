@@ -1,65 +1,60 @@
-[
+{
+  "members": [
     {
-        "name": "Nile Basin Agribusiness Ltd",
-        "address": "Plot 24, Gulu-Lira Highway, Lira",
-        "phone": "+256 414 555101",
-        "website": "https://example.com",
-        "image": "nile-basin.svg",
-        "membershipLevel": 3,
-        "tagline": "Sustainable regional crop procurement and wholesale logistics architecture."
+      "name": "Atek Medical Center",
+      "address": "Plot 4, Gulu Road, Lira City",
+      "phone": "+256 414 555201",
+      "website": "https://example.com",
+      "image": "images/member-logos/atek-medical.svg",
+      "membershipLevel": 3
     },
     {
-        "name": "SykWay Orbit Tech Solutions",
-        "address": "Bazaar Ward, Lira City",
-        "phone": "+256 778 831214",
-        "website": "https://example.com",
-        "image": "sykway-tech.svg",
-        "membershipLevel": 3,
-        "tagline": "Architectural systems integration and high-performance ICT infrastructure deployments."
+      "name": "Equator Solar Systems",
+      "address": "Plot 18, Soroti Road, Lira City",
+      "phone": "+256 414 555202",
+      "website": "https://example.com",
+      "image": "images/member-logos/equator-solar.svg",
+      "membershipLevel": 2
     },
     {
-        "name": "Lira City Millers",
-        "address": "Industrial Area, Block B, Lira",
-        "phone": "+256 414 555103",
-        "website": "https://example.com",
-        "image": "lira-millers.svg",
-        "membershipLevel": 2,
-        "tagline": "High-capacity processing, packaging, and distribution of premium grain products."
+      "name": "Lira Millers Ltd",
+      "address": "Plot 45, Industrial Area, Lira City",
+      "phone": "+256 414 555203",
+      "website": "https://example.com",
+      "image": "images/member-logos/lira-millers.svg",
+      "membershipLevel": 1
     },
     {
-        "name": "Equator Solar Power Uganda",
-        "address": "Soroti Road, Lira",
-        "phone": "+256 414 555104",
-        "website": "https://example.com",
-        "image": "equator-solar.svg",
-        "membershipLevel": 2,
-        "tagline": "Off-grid domestic and industrial solar micro-grid design engineering solutions."
+      "name": "Nile Basin Engineering",
+      "address": "Plot 11, Main Street, Lira City",
+      "phone": "+256 414 555204",
+      "website": "https://example.com",
+      "image": "images/member-logos/nile-basin.svg",
+      "membershipLevel": 3
     },
     {
-        "name": "Savanna Logistics & Transport",
-        "address": "Kampala Road, Lira",
-        "phone": "+256 414 555105",
-        "website": "https://example.com",
-        "image": "savanna-logistics.svg",
-        "membershipLevel": 1,
-        "tagline": "Cross-border commercial heavy haulage, fleet tracking, and cargo security."
+      "name": "Nu-Microfinance Hub",
+      "address": "Plot 7, Market Road, Lira City",
+      "phone": "+256 414 555205",
+      "website": "https://example.com",
+      "image": "images/member-logos/nu-microfinance.svg",
+      "membershipLevel": 2
     },
     {
-        "name": "Atek Community Medical Centre",
-        "address": "Adyel Division, Lira",
-        "phone": "+256 414 555106",
-        "website": "https://example.com",
-        "image": "atek-medical.svg",
-        "membershipLevel": 1,
-        "tagline": "Advanced clinical diagnostics, emergency trauma support, and outpatient healthcare."
+      "name": "Savanna Logistics & Transport",
+      "address": "Plot 88, Juba Highway, Lira City",
+      "phone": "+256 414 555206",
+      "website": "https://example.com",
+      "image": "images/member-logos/savanna-logistics.svg",
+      "membershipLevel": 1
     },
     {
-        "name": "Northern Uganda Microfinance",
-        "address": "Main Street, Plot 12, Lira",
-        "phone": "+256 414 555107",
-        "website": "https://example.com",
-        "image": "nu-microfinance.svg",
-        "membershipLevel": 3,
-        "tagline": "Empowering micro-enterprise acceleration with fair accessible capital programs."
+      "name": "SykWay Tech Solutions",
+      "address": "Plot 12, Main Street, Lira City",
+      "phone": "+256 414 555207",
+      "website": "https://example.com",
+      "image": "images/member-logos/sykway-tech.svg",
+      "membershipLevel": 3
     }
-]
+  ]
+}

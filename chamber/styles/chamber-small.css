@@ -3,23 +3,41 @@
    ========================================================================== */
 
 :root {
+    /* --- Core Brand Theme Variables --- */
     --primary-brand: #1d3557;
     --secondary-brand: #457b9d;
     --accent-red: #e63946;
+    
+    /* --- Canvas, Surfaces & Typography Standardizations --- */
     --neutral-light: #f8f9fa;
+    --bg-canvas: #f1f5f9;       /* Standardized background token */
+    --white: #ffffff;           /* Standardized pure white token */
     --text-charcoal: #2b2d42;
     --shadow-subtle: 0 4px 8px rgba(0, 0, 0, 0.06);
     
+    /* --- Interactive Borders and Form Toggles --- */
+    --border-ui: #e2e8f0;
+    --text-muted: #64748b;
+    --nav-border: rgba(255, 255, 255, 0.1);
+    
+    /* --- Membership Level Presentation Tiers --- */
     --gold-bg: #fff3cd;
     --gold-border: #ffc107;
+    --gold-text: #856404;
+    
     --silver-bg: #e2e3e5;
     --silver-border: #6c757d;
+    --silver-text: #383d41;
+    
+    --member-bg: #e1f5fe;
+    --member-border: #b3e5fc;
+    --member-text: #0288d1;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     color: var(--text-charcoal);
-    background-color: #f1f5f9;
+    background-color: var(--bg-canvas); /* Fixed raw string string lookup */
     margin: 0;
     padding: 0;
 }
@@ -27,7 +45,7 @@ body {
 /* --- Global Navigation Header Architecture --- */
 header {
     background-color: var(--primary-brand);
-    color: #ffffff;
+    color: var(--white); /* Fixed raw string lookup */
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -40,7 +58,6 @@ header {
     gap: 1rem;
 }
 
-/* Updated hook matching the new structural heading class */
 .brand-text .header-title {
     margin: 0;
     font-size: 1.6rem;
@@ -50,7 +67,7 @@ header {
 
 .brand-text span {
     font-size: 0.85rem;
-    color: #cbd5e1;
+    color: #cbd5e1; /* Maintained layout helper value */
 }
 
 .site-logo {
@@ -67,7 +84,7 @@ header {
     top: 1.3rem;
     background: none;
     border: none;
-    color: #ffffff;
+    color: var(--white);
     font-size: 2rem;
     cursor: pointer;
 }
@@ -90,10 +107,10 @@ header {
 }
 
 #primaryNav a {
-    color: #ffffff;
+    color: var(--white);
     text-decoration: none;
     padding: 0.75rem 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--nav-border);
 }
 
 #primaryNav a:hover, #primaryNav a.active {
@@ -107,7 +124,6 @@ main {
     margin: 0 auto;
 }
 
-/* Styling alignment for the main page heading */
 main h1 {
     text-align: center;
     color: var(--primary-brand);
@@ -122,16 +138,19 @@ main h1 {
     align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
-    background: #ffffff;
+    background: var(--white);
     padding: 1rem;
     border-radius: 8px;
     box-shadow: var(--shadow-subtle);
 }
 
-.directory-control-bar h2 { margin: 0; color: var(--primary-brand); }
+.directory-control-bar h2 { 
+    margin: 0; 
+    color: var(--primary-brand); 
+}
 
 .toggle-btn {
-    background: #e2e8f0;
+    background: var(--border-ui);
     border: none;
     padding: 0.5rem 1.25rem;
     font-weight: 700;
@@ -144,7 +163,7 @@ main h1 {
 
 .toggle-btn.active {
     background: var(--secondary-brand);
-    color: white;
+    color: var(--white);
 }
 
 /* ==========================================================================
@@ -157,14 +176,14 @@ main h1 {
 }
 
 .directory-card {
-    background: #ffffff;
+    background: var(--white);
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: var(--shadow-subtle);
     display: flex;
     flex-direction: column;
     position: relative;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-ui);
 }
 
 .grid-mode .directory-card {
@@ -191,13 +210,13 @@ main h1 {
     text-align: left;
     width: 100%;
     font-size: 0.9rem;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid var(--bg-canvas);
     padding-top: 1rem;
 }
 
 .company-tagline {
     font-style: italic;
-    color: #64748b;
+    color: var(--text-muted);
     margin: 0.5rem 0 1rem 0;
 }
 
@@ -215,9 +234,9 @@ main h1 {
     margin-top: 1rem;
 }
 
-.tier-gold { background: var(--gold-bg); border: 1px solid var(--gold-border); color: #856404; }
-.tier-silver { background: var(--silver-bg); border: 1px solid var(--silver-border); color: #383d41; }
-.tier-member { background: #e1f5fe; border: 1px solid #b3e5fc; color: #0288d1; }
+.tier-gold { background: var(--gold-bg); border: 1px solid var(--gold-border); color: var(--gold-text); }
+.tier-silver { background: var(--silver-bg); border: 1px solid var(--silver-border); color: var(--silver-text); }
+.tier-member { background: var(--member-bg); border: 1px solid var(--member-border); color: var(--member-text); }
 
 /* ==========================================================================
    Display System Layout Modifiers (List Row Presentation Rules)
@@ -233,7 +252,6 @@ main h1 {
     border-radius: 4px;
 }
 
-/* Completely strip media images and badges in list view to meet rubric rules */
 .list-mode .card-image-box,
 .list-mode .company-tagline,
 .list-mode .membership-badge {
@@ -246,7 +264,7 @@ main h1 {
 /* --- Global Structural Footer --- */
 footer {
     background-color: var(--primary-brand);
-    color: #ffffff;
+    color: var(--white);
     padding: 2rem 1rem;
     text-align: center;
     margin-top: 4rem;

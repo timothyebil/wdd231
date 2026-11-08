@@ -1,9 +1,53 @@
+/* ==========================================================================
+   WDD 231 Chamber Portal - Comprehensive Desktop Large View Layer
+   ========================================================================== */
+
 @media screen and (min-width: 1024px) {
+    /* --- Main Content Window Margins --- */
     main {
         padding: 2rem 1rem;
     }
 
-    /* Expand directory grid framework to a clean three-column card system */
+    /* ==========================================================================
+       Module A: Chamber Dashboard Grid Matrix (index.html)
+       ========================================================================== */
+    .home-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2.5rem;
+        padding: 1rem 0;
+    }
+
+    .hero-box {
+        grid-column: 1 / -1;
+    }
+
+    .event-card {
+        grid-column: 1 / 2;
+    }
+
+    .weather-card {
+        grid-column: 2 / 3;
+    }
+
+    .spotlight-section-wrapper {
+        grid-column: 1 / -1;
+    }
+
+    .spotlight-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .forecast-grid {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /* ==========================================================================
+       Module B: Business Directory Layout Overrides (directory.html)
+       ========================================================================== */
     .grid-mode {
         grid-template-columns: repeat(3, 1fr);
         gap: 2.5rem;
@@ -18,7 +62,9 @@
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
 
-    /* Multi-column grid realignment inside the document footer */
+    /* ==========================================================================
+       Module C: Shared Multi-Column Global Footer Layout
+       ========================================================================== */
     footer {
         display: flex;
         justify-content: space-between;

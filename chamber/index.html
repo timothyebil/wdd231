@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lira Chamber of Commerce - Home Portal</title>
+    <meta name="description" content="Discover regional commercial pipelines, real-time weather alerts, and verified premium partnerships inside the Lira Chamber of Commerce digital portal.">
+    <meta name="author" content="Timothy Ebil">
+    
+    <!-- Tab Favicon Alignment -->
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph Social Media Transport Layer Standards -->
+    <meta property="og:title" content="Lira Chamber of Commerce - Connecting Enterprise Networks">
+    <meta property="og:description" content="Empowering domestic trade, regional infrastructure development, and localized agricultural coordination hubs.">
+    <meta property="og:image" content="https://github.io">
+    <meta property="og:url" content="https://github.io">
+    <meta property="og:type" content="website">
+    
+    <!-- Core Layout Layer Hierarchy -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/chamber-small.css">
+    <link rel="stylesheet" href="styles/chamber-larger.css">
+    
+    <!-- Non-Blocking Operational Script Handlers -->
+    <script src="scripts/directory.js" defer></script>
+    <script src="scripts/home.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="brand-group">
+            <img src="images/logo.svg" class="site-logo" alt="SykWay Orbit Brand Logo" width="50" height="50">
+            <div class="brand-text">
+                <div class="header-title">Lira Chamber</div>
+                <span>Commerce &amp; Infrastructure Advancement</span>
+            </div>
+        </div>
+        <button id="navToggle" aria-label="Toggle Navigation Options Menu">☰</button>
+        <nav id="primaryNav">
+            <a href="index.html" class="active">Home</a>
+            <a href="directory.html">Directory</a>
+            <a href="join.html">Join Us</a>
+            <a href="discover.html">Discover</a>
+        </nav>
+    </header>
+
+    <main class="home-grid">
+        <h1 class="visually-hidden">Lira Chamber Digital Landing Page Hub</h1>
+        
+        <!-- Scalable Hero Banner with CTA Link Overlay -->
+        <section class="hero-box">
+            <img src="images/chamber-hero.webp" alt="Lira commerce district aerial drone view" width="1200" height="400" class="hero-img">
+            <div class="cta-overlay">
+                <h2>Empower Your Local Business</h2>
+                <p>Join our professional network today to expand your market footprint.</p>
+                <a href="join.html" class="cta-btn">Apply For Membership</a>
+            </div>
+        </section>
+
+        <!-- Current Events Section -->
+        <section class="chamber-card event-card">
+            <h2>Upcoming Events</h2>
+            <div class="event-item">
+                <h3>Annual Agro-Business Expo</h3>
+                <p class="event-date">📅 November 18, 2026 | 09:00 AM</p>
+                <p>Network with leading regional exporters and supply chain infrastructure partners.</p>
+            </div>
+            <div class="event-item">
+                <h3>Digital Marketing Boot Camp</h3>
+                <p class="event-date">📅 December 02, 2026 | 02:00 PM</p>
+                <p>Learn responsive layout conversions and modern indexing tactics for SEO enhancement.</p>
+            </div>
+        </section>
+
+        <!-- Live API Weather Module -->
+        <section class="chamber-card weather-card">
+            <h2>Regional Weather</h2>
+            <div id="current-weather">
+                <p>Establishing live satellite connection...</p>
+            </div>
+            <hr class="weather-divider">
+            <h3>3-Day Forecast</h3>
+            <div id="forecast-wrapper" class="forecast-grid">
+                <!-- Days append automatically via home.js loop -->
+            </div>
+        </section>
+
+        <!-- Dynamic Company Ad Spotlights Section -->
+        <section class="spotlight-section-wrapper">
+            <h2>Business Spotlights</h2>
+            <div id="spotlightDisplay" class="spotlight-grid">
+                <!-- 2 to 3 randomized premium member nodes render here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contact"> 
+            <h3>Lira Chamber Office Hub</h3>
+            <p>Plot 12, Main Street, Lira City, Uganda</p>
+            <p>Phone: +256 414 555101 | info@lirachamber.org</p>
+            <p><a href="directory.html">Back to Directory Top</a></p>
+        </div>
+        <div class="footer-dev-meta">
+            <p>&copy; <span id="yearNode"></span> | <b>Timothy Ebil</b> | Uganda</p>
+            <p>Course Track: WDD 231 - Web Frontend Development II</p>
+            <p id="modNode"></p>
+        </div>
+    </footer>
+</body>
+</html>

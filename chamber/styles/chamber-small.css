@@ -338,3 +338,247 @@ footer {
 
     .list-mode .company-details p { margin: 0; }
 }
+/* ==========================================================================
+   Chamber Dashboard Module Presentation Layouts (Home Page Grid System)
+   ========================================================================== */
+.home-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+/* Screen reader accessible element clip utility to pass SEO/A11y validations */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Hero Box Frame Layout Constraints and Alignment Systems */
+.hero-box {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--border-ui);
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.cta-overlay {
+    position: relative;
+    background: var(--primary-brand);
+    color: var(--white);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.cta-overlay h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.4rem;
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--accent-red);
+    color: var(--white);
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cta-btn:hover {
+    background-color: var(--secondary-brand);
+}
+
+/* Surface Blocks Dashboard Configurations */
+.chamber-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--border-ui);
+}
+
+.event-item {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px dashed var(--border-ui);
+}
+
+.event-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.event-date {
+    font-weight: 700;
+    color: var(--secondary-brand);
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+
+/* Weather UI Custom Layout Blocks */
+.weather-now {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+
+.main-temp {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-brand);
+}
+
+.weather-desc {
+    margin: 0;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+.weather-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-ui);
+    margin: 1rem 0;
+}
+
+.forecast-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.forecast-day {
+    flex: 1;
+    background: var(--neutral-light);
+    padding: 0.75rem;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid var(--border-ui);
+}
+
+.forecast-day h4 {
+    margin: 0 0 0.25rem 0;
+    color: var(--text-muted);
+}
+
+.forecast-day p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary-brand);
+}
+
+/* Dynamic Spotlight Component Grid Core Formatting rules */
+.spotlight-section-wrapper {
+    margin-top: 1rem;
+}
+
+.spotlight-section-wrapper h2 {
+    color: var(--primary-brand);
+    margin-bottom: 1rem;
+}
+
+.spotlight-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.spotlight-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--border-ui);
+}
+
+.spotlight-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-ui);
+    margin: 0.75rem 0;
+}
+
+.spot-info {
+    margin: 0.4rem 0;
+    font-size: 0.9rem;
+}
+
+.spot-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--secondary-brand);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Tablet Transition Scaling Overrides */
+@media screen and (min-width: 640px) {
+    .cta-overlay {
+        position: absolute; /* Place over the image asset when container width permits */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(29, 53, 135, 0.85);
+    }
+}
+/* ==========================================================================
+   Enhanced Premium Corporate Membership Badge Components
+   ========================================================================== */
+.membership-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0.5rem;
+}
+
+/* Distinct corporate colors passing strict AA color contrast audits */
+.tier-gold .membership-badge {
+    background-color: #fef3c7; /* Soft gold background surface */
+    border: 1px solid #f59e0b; /* Bright gold outline */
+    color: #78350f;            /* Deep amber text token */
+}
+
+.tier-silver .membership-badge {
+    background-color: #f1f5f9; /* Soft slate/silver background surface */
+    border: 1px solid #94a3b8; /* Balanced gray outline */
+    color: #1e293b;            /* Deep navy text token */
+}
+
+/* Subtle card accent borders matching tier colors */
+.spotlight-card.tier-gold, .directory-card.tier-gold {
+    border-top: 4px solid #f59e0b;
+}
+
+.spotlight-card.tier-silver, .directory-card.tier-silver {
+    border-top: 4px solid #94a3b8;
+}
+
+

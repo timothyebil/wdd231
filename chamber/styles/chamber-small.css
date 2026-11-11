@@ -207,3 +207,4 @@ footer { background-color: var(--primary-brand); color: var(--white); padding: 2
     .list-mode .company-details { display: flex; flex: 2; justify-content: space-between; gap: 1rem; }
     .list-mode .company-details p { margin: 0; }
 }
+ 

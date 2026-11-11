@@ -122,7 +122,7 @@ main h1 { text-align: center; color: var(--primary-brand); margin: 0 0 1.5rem 0;
 .forecast-grid { display: flex; justify-content: space-between; gap: 0.5rem; margin-top: 0.5rem; }
 .forecast-day { flex: 1; background: var(--neutral-light); padding: 0.75rem; text-align: center; border-radius: 6px; border: 1px solid var(--border-ui); }
 .forecast-day h4 { margin: 0 0 0.25rem 0; color: var(--text-muted); }
-.forecast-day p { margin: 0; font-weight: 700; font-size: 1.1rem; color: var(--primary-brand); }
+.forecast-day p { font-weight: 700; font-size: 1.1rem; color: var(--primary-brand); }
 
 .spotlight-section-wrapper h2 { color: var(--primary-brand); margin: 0 0 1rem 0; }
 .spot-info { margin: 0.4rem 0; font-size: 0.9rem; }
@@ -140,7 +140,7 @@ main h1 { text-align: center; color: var(--primary-brand); margin: 0 0 1.5rem 0;
     border-radius: 8px;
     box-shadow: var(--shadow-subtle);
 }
-.directory-control-bar h2 { margin: 0; color: var(--primary-brand); }
+.directory-control-bar h2 { color: var(--primary-brand); }
 
 .toggle-btn {
     background: var(--border-ui);

@@ -45,7 +45,6 @@ if (gridContainer) {
         const card = document.createElement('article');
         card.classList.add('chamber-card', 'discover-card', `area-${place.id}`);
 
-        // Do not lazy-load the first 2 cards above the fold for faster LCP
         const loadingAttr = index < 2 ? '' : 'loading="lazy"';
 
         card.innerHTML = `

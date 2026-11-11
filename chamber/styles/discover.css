@@ -1,0 +1,148 @@
+/* ==========================================================================
+   WDD 231 Chamber Portal - Discover Page Named Grid Areas & Effects
+   ========================================================================== */
+
+.visit-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary-brand);
+    color: var(--white);
+    padding: 0.85rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.visit-banner p {
+    margin: 0;
+    font-weight: 700;
+}
+
+.demographics-bar {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.demographics-bar h2 {
+    color: var(--primary-brand);
+    margin: 0 0 1rem 0;
+}
+
+.stats-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.stats-row strong {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--accent-red);
+}
+
+/* --- Small Screens (320px to 640px): Single-Column Named Grid Areas --- */
+.discover-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "card1"
+        "card2"
+        "card3"
+        "card4"
+        "card5"
+        "card6"
+        "card7"
+        "card8";
+}
+
+.area-card1 { grid-area: card1; }
+.area-card2 { grid-area: card2; }
+.area-card3 { grid-area: card3; }
+.area-card4 { grid-area: card4; }
+.area-card5 { grid-area: card5; }
+.area-card6 { grid-area: card6; }
+.area-card7 { grid-area: card7; }
+.area-card8 { grid-area: card8; }
+
+.discover-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.discover-card h2 {
+    color: var(--primary-brand);
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.discover-card figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.discover-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    display: block;
+}
+
+.discover-card address {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--secondary-brand);
+}
+
+.discover-card p {
+    margin: 0;
+    flex: 1;
+}
+
+.learn-btn {
+    align-self: flex-start;
+    margin: 0;
+}
+
+/* --- Medium Screens (641px to 1024px): Asymmetric Featured Grid Areas --- */
+@media screen and (min-width: 641px) {
+    .stats-row {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .discover-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "card1 card1"
+            "card2 card3"
+            "card4 card5"
+            "card6 card6"
+            "card7 card8";
+    }
+
+    /* Desktop/Tablet Image Hover Effect (Disabled on Mobile) */
+    .discover-card img {
+        transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .discover-card figure:hover img {
+        transform: scale(1.06);
+        filter: contrast(1.08) brightness(1.04);
+    }
+}
+
+/* --- Large Screens (1025px+): 4-Column Asymmetric Showcase Grid Areas --- */
+@media screen and (min-width: 1025px) {
+    .discover-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "card1 card1 card2 card3"
+            "card4 card5 card6 card6"
+            "card7 card7 card8 card8";
+    }
+}

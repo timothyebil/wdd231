@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lira Chamber of Commerce - Discover Lira &amp; Lango</title>
+    <meta name="description" content="Explore Lira City demographics, regional attractions, agricultural hubs, and cultural landmarks in Northern Uganda.">
+    <meta name="author" content="Timothy Ebil">
+    
+    <!-- Valid SVG Favicon -->
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    
+    <!-- Exact Google Fonts Links -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Lira Chamber of Commerce - Discover Our Region">
+    <meta property="og:description" content="Explore Northern Uganda's fastest-growing agribusiness, cultural, and educational hub in Lira City.">
+    <meta property="og:image" content="https://github.io">
+    <meta property="og:url" content="https://timothyebil.github.io/wdd231/chamber/discover.html">
+    <meta property="og:type" content="website">
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/chamber-small.css">
+    <link rel="stylesheet" href="styles/chamber-larger.css">
+    <link rel="stylesheet" href="styles/discover.css">
+    
+    <!-- Deferred & Module JavaScript -->
+    <script src="scripts/directory.js" defer></script>
+    <script type="module" src="scripts/discover.js"></script>
+</head>
+<body>
+    <header>
+        <div class="brand-group">
+            <img src="images/logo.svg" class="site-logo" alt="SykWay Orbit Brand Logo" width="50" height="50">
+            <div class="brand-text">
+                <div class="header-title">Lira Chamber</div>
+                <span>Commerce &amp; Infrastructure Advancement</span>
+            </div>
+        </div>
+        <button id="navToggle" aria-label="Toggle Navigation Options Menu">☰</button>
+        <nav id="primaryNav">
+            <a href="index.html">Home</a>
+            <a href="directory.html">Directory</a>
+            <a href="join.html">Join Us</a>
+            <a href="discover.html" class="active">Discover</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Discover Lira &amp; Northern Uganda</h1>
+
+        <!-- Visitor Tracking Banner (localStorage) -->
+        <aside id="visitBanner" class="visit-banner" aria-live="polite">
+            <p id="visitMessage"></p>
+            <button type="button" id="closeVisitBtn" class="modal-close-btn" aria-label="Dismiss welcome message">✕</button>
+        </aside>
+
+        <!-- Regional Demographics & Economic Snapshot -->
+        <section class="chamber-card demographics-bar">
+            <h2>Regional Profile</h2>
+            <div class="stats-row">
+                <div><strong>480,000+</strong><span>Metro &amp; District Population</span></div>
+                <div><strong>#1 Hub</strong><span>Northern Uganda Oilseed &amp; Grain Trade</span></div>
+                <div><strong>3 Highways</strong><span>Direct Links to Kampala, Gulu &amp; Soroti</span></div>
+            </div>
+        </section>
+
+        <!-- 8 Named Grid-Area Attraction Cards -->
+        <section id="discoverGrid" class="discover-grid" aria-label="Points of Interest">
+            <!-- Dynamically injected from data/discover.mjs -->
+        </section>
+
+        <!-- Reusable Detail Modal for Learn More Buttons -->
+        <dialog id="discoverModal" class="tier-modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Location Details</h3>
+                <button type="button" id="closeDiscoverModal" class="modal-close-btn" aria-label="Close modal">✕</button>
+            </div>
+            <p id="modalAddress" class="event-date"></p>
+            <p id="modalDesc"></p>
+        </dialog>
+    </main>
+
+    <footer>
+        <div class="footer-contact"> 
+            <h3>Lira Chamber Office Hub</h3>
+            <p>Plot 12, Main Street, Lira City, Uganda</p>
+            <p>Phone: +256 414 555101 | info@lirachamber.org</p>
+            <p><a href="directory.html">Back to Directory Top</a></p>
+        </div>
+        <div class="footer-dev-meta">
+            <p>&copy; <span id="yearNode"></span> | <b>Timothy Ebil</b> | Uganda</p>
+            <p>Course Track: WDD 231 - Web Frontend Development II</p>
+            <p id="modNode"></p>
+        </div>
+    </footer>
+</body>
+</html>

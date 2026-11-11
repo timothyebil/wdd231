@@ -4,7 +4,7 @@ export const attractions = [
         name: "Barlonyo Memorial Site",
         address: "Barlonyo, Agweng Sub-county, Lira District",
         description: "A historic national monument and peaceful reflection center honoring community resilience and regional peace-building in Northern Uganda.",
-        image: "images/discover/barlonyo.webp"
+        image: "images/discover/barlonyo.webp" 
     },
     {
         id: "card2",

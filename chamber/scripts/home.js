@@ -8,18 +8,12 @@ const memberJsonUrl = 'data/members.json';
 const weatherApiKey = '92a6b297b777a83d47f2010c224254bf';
 const lat = '2.2490';
 const lon = '32.9002';
-
-// Complete OpenWeatherMap 5-Day / 3-Hour Forecast API Endpoint
 const weatherUrl = `https://openweathermap.org{lat}&lon=${lon}&units=metric&appid=${weatherApiKey}`;
 
-// Target DOM Elements
 const weatherDisplay = document.querySelector('#current-weather');
 const forecastDisplay = document.querySelector('#forecast-wrapper');
 const spotlightDisplay = document.querySelector('#spotlightDisplay');
 
-/**
- * 1. OpenWeatherMap API Fetch Engine
- */
 async function fetchWeatherData() {
     try {
         const response = await fetch(weatherUrl);
@@ -37,11 +31,10 @@ async function fetchWeatherData() {
 function renderWeather(data) {
     if (!weatherDisplay || !forecastDisplay) return;
 
-    // Extract current weather conditions from the first forecast entry
-    const currentItem = data.list[0];
+    const currentItem = data.list;
     const temp = Math.round(currentItem.main.temp);
-    const desc = currentItem.weather[0].description;
-    const iconCode = currentItem.weather[0].icon;
+    const desc = currentItem.weather.description;
+    const iconCode = currentItem.weather.icon;
 
     weatherDisplay.innerHTML = `
         <div class="weather-now">
@@ -51,7 +44,6 @@ function renderWeather(data) {
         </div>
     `;
 
-    // Extract 3-day midday forecast (12:00:00)
     forecastDisplay.innerHTML = '';
     const dailySlots = data.list.filter(item => item.dt_txt.includes('12:00:00')).slice(0, 3);
 
@@ -70,9 +62,6 @@ function renderWeather(data) {
     });
 }
 
-/**
- * 2. Premium Member Spotlight Randomizer
- */
 async function fetchSpotlightData() {
     try {
         const response = await fetch(memberJsonUrl);
@@ -90,10 +79,7 @@ async function fetchSpotlightData() {
 function renderSpotlights(memberArray) {
     if (!spotlightDisplay) return;
 
-    // Filter strictly for Gold (3) and Silver (2) members
     const premiumMembers = memberArray.filter(member => member.membershipLevel === 3 || member.membershipLevel === 2);
-
-    // Randomly shuffle and pick 3 members
     const randomized = premiumMembers.sort(() => 0.5 - Math.random());
     const selectedSpotlights = randomized.slice(0, 3);
 
@@ -115,6 +101,5 @@ function renderSpotlights(memberArray) {
     });
 }
 
-// Initialize Dashboard Engines
 fetchWeatherData();
 fetchSpotlightData();

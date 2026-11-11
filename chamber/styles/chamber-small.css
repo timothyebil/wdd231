@@ -5,7 +5,7 @@
 :root {
     --primary-brand: #1d3557;
     --secondary-brand: #457b9d;
-    --accent-red: #e63946;
+    --accent-red: #b91c1c;
     --neutral-light: #f8f9fa;
     --bg-canvas: #f1f5f9;
     --white: #ffffff;
@@ -207,4 +207,3 @@ footer { background-color: var(--primary-brand); color: var(--white); padding: 2
     .list-mode .company-details { display: flex; flex: 2; justify-content: space-between; gap: 1rem; }
     .list-mode .company-details p { margin: 0; }
 }
- 

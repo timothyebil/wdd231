@@ -211,14 +211,9 @@ footer { background-color: var(--primary-brand); color: var(--white); padding: 2
 /* --- Join Page Form, Tier Cards & Modals --- */
 .join-layout, .tier-cards-box, .join-form { display: flex; flex-direction: column; gap: 1.25rem; }
 .join-form label { display: flex; flex-direction: column; font-weight: 700; font-size: 0.9rem; gap: 0.35rem; }
-.join-form input, .join-form select, .join-form textarea {
-    padding: 0.65rem;
-    border: 1px solid var(--border-ui);
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-}
+.join-form input, .join-form select, .join-form textarea { padding: 0.65rem; border: 1px solid var(--border-ui); border-radius: 4px; font: inherit; }
 .submit-btn { border: 0; cursor: pointer; align-self: flex-start; }
+.modal-open-btn { display: inline-block; text-decoration: none; margin-top: 0.5rem; }
 
 @keyframes cardSlideUp {
     from { opacity: 0; transform: translateY(15px); }
@@ -232,7 +227,7 @@ footer { background-color: var(--primary-brand); color: var(--white); padding: 2
 .tier-modal { border: 1px solid var(--border-ui); border-radius: 8px; padding: 1.5rem; max-width: 450px; width: 90%; }
 .tier-modal::backdrop { background: var(--overlay-bg); }
 .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-ui); padding-bottom: 0.75rem; margin-bottom: 1rem; }
-.modal-header h3 { margin: 0; color: var(--primary-brand); }
+.modal-header h3 { color: var(--primary-brand); }
 .modal-close-btn { background: var(--border-ui); border: 0; border-radius: 4px; padding: 0.3rem 0.65rem; font-weight: 700; cursor: pointer; }
 .confirmation-box { max-width: 650px; margin: 0 auto; }
 .results-list { background: var(--neutral-light); padding: 1rem; border-radius: 6px; border: 1px solid var(--border-ui); margin: 1rem 0; }

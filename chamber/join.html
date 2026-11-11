@@ -54,7 +54,7 @@
 
         <div class="join-layout">
             <!-- Membership Application Form -->
-            <section class="chamber-card join-form-box">
+            <section class="chamber-card">
                 <h2>Membership Application</h2>
                 <form method="get" action="thankyou.html" class="join-form">
                     <label>
@@ -91,10 +91,10 @@
                         Membership Level *
                         <select name="membership" title="Select a membership tier" required>
                             <option value="" disabled selected>Select a Membership Tier...</option>
-                            <option value="NP Membership">NP Membership (Non-Profit - No Fee)</option>
-                            <option value="Bronze Membership">Bronze Membership</option>
-                            <option value="Silver Membership">Silver Membership</option>
-                            <option value="Gold Membership">Gold Membership</option>
+                            <option value="np">NP Membership (Non-Profit - No Fee)</option>
+                            <option value="bronze">Bronze Membership</option>
+                            <option value="silver">Silver Membership</option>
+                            <option value="gold">Gold Membership</option>
                         </select>
                     </label>
 
@@ -105,7 +105,7 @@
 
                     <input type="hidden" name="timestamp" id="formTimestamp">
 
-                    <button type="submit" class="cta-btn submit-btn">Submit Application</button>
+                    <input type="submit" value="Submit Membership Application" class="cta-btn submit-btn">
                 </form>
             </section>
 
@@ -113,33 +113,33 @@
             <section class="tier-cards-box">
                 <h2>Membership Tiers</h2>
 
-                <div class="chamber-card tier-card anim-card-1">
+                <div class="chamber-card tier-card">
                     <h3>NP Membership</h3>
                     <p>For registered non-profit organizations. No membership fee.</p>
-                    <button type="button" class="toggle-btn modal-open-btn" data-modal="modal-np">Learn More</button>
+                    <a href="#modal-np" class="toggle-btn modal-open-btn" data-modal="modal-np">Learn More</a>
                 </div>
 
                 <div class="chamber-card tier-card anim-card-2">
                     <h3>Bronze Membership</h3>
                     <p>Essential directory listing and networking event invitations.</p>
-                    <button type="button" class="toggle-btn modal-open-btn" data-modal="modal-bronze">Learn More</button>
+                    <a href="#modal-bronze" class="toggle-btn modal-open-btn" data-modal="modal-bronze">Learn More</a>
                 </div>
 
                 <div class="chamber-card tier-card tier-silver anim-card-3">
                     <h3>Silver Membership</h3>
                     <p>Includes home page spotlights, training workshops, and event discounts.</p>
-                    <button type="button" class="toggle-btn modal-open-btn" data-modal="modal-silver">Learn More</button>
+                    <a href="#modal-silver" class="toggle-btn modal-open-btn" data-modal="modal-silver">Learn More</a>
                 </div>
 
                 <div class="chamber-card tier-card tier-gold anim-card-4">
                     <h3>Gold Membership</h3>
                     <p>Premier home page spotlight rotation, VIP sponsorship, and full publicity.</p>
-                    <button type="button" class="toggle-btn modal-open-btn" data-modal="modal-gold">Learn More</button>
+                    <a href="#modal-gold" class="toggle-btn modal-open-btn" data-modal="modal-gold">Learn More</a>
                 </div>
             </section>
         </div>
 
-        <!-- Interactive Native Dialog Modals -->
+        <!-- Four HTML Modals -->
         <dialog id="modal-np" class="tier-modal">
             <div class="modal-header">
                 <h3>NP Membership Benefits</h3>
@@ -203,3 +203,8 @@
         <div class="footer-dev-meta">
             <p>&copy; <span id="yearNode"></span> | <b>Timothy Ebil</b> | Uganda</p>
             <p>Course Track: WDD 231 - Web Frontend Development II</p>
+            <p id="modNode"></p>
+        </div>
+    </footer>
+</body>
+</html>

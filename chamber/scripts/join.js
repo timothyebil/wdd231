@@ -10,14 +10,15 @@ if (timestampField) {
     timestampField.value = new Date().toLocaleString();
 }
 
-// 2. Interactive Modal Triggers (No inline onclick attributes)
-const openButtons = document.querySelectorAll('.modal-open-btn');
+// 2. Interactive Modal Triggers (Zero inline onclick handlers)
+const openLinks = document.querySelectorAll('.modal-open-btn');
 const closeButtons = document.querySelectorAll('.modal-close-btn');
 const dialogs = document.querySelectorAll('.tier-modal');
 
-openButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const targetId = btn.getAttribute('data-modal');
+openLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute('data-modal');
         const dialog = document.getElementById(targetId);
         if (dialog) {
             dialog.showModal();
@@ -34,7 +35,6 @@ closeButtons.forEach(btn => {
     });
 });
 
-// Close modal when clicking outside the dialog box
 dialogs.forEach(dialog => {
     dialog.addEventListener('click', (event) => {
         if (event.target === dialog) {
@@ -43,24 +43,23 @@ dialogs.forEach(dialog => {
     });
 });
 
-// 3. Parse URL Query Parameters on thankyou.html
+// 3. Parse and Display Required Form Fields on thankyou.html
 const resultsContainer = document.querySelector('#submissionResults');
 if (resultsContainer) {
     const params = new URLSearchParams(window.location.search);
-    const firstName = params.get('fname') || 'Applicant';
-    const lastName = params.get('lname') || '';
+    const firstName = params.get('fname') || 'Not provided';
+    const lastName = params.get('lname') || 'Not provided';
     const email = params.get('email') || 'Not provided';
     const phone = params.get('phone') || 'Not provided';
     const organization = params.get('organization') || 'Not provided';
-    const membership = params.get('membership') || 'Not selected';
     const timestamp = params.get('timestamp') || new Date().toLocaleString();
 
     resultsContainer.innerHTML = `
-        <p><strong>Applicant Name:</strong> ${firstName} ${lastName}</p>
+        <p><strong>First Name:</strong> ${firstName}</p>
+        <p><strong>Last Name:</strong> ${lastName}</p>
         <p><strong>Email Address:</strong> ${email}</p>
-        <p><strong>Mobile Phone:</strong> ${phone}</p>
-        <p><strong>Business / Organization:</strong> ${organization}</p>
-        <p><strong>Selected Tier:</strong> ${membership}</p>
-        <p><strong>Submitted On:</strong> ${timestamp}</p>
+        <p><strong>Mobile Number:</strong> ${phone}</p>
+        <p><strong>Business / Organization Name:</strong> ${organization}</p>
+        <p><strong>Application Timestamp:</strong> ${timestamp}</p>
     `;
 }

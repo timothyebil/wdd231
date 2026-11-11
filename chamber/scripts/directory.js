@@ -1,70 +1,90 @@
-const jsonPath = "data/members.json";
-const displayContainer = document.querySelector("#directoryDisplay");
-const gridButton = document.querySelector("#viewGrid");
-const listButton = document.querySelector("#viewList");
+/**
+ * ==========================================================================
+ * WDD 231 Chamber Portal - Shared Navigation, Footer & Directory Engine
+ * ==========================================================================
+ */
 
-// Asynchronous data retrieval engine
-async function fetchAndRenderMembers() {
-    try {
-        const response = await fetch(jsonPath);
-        if (!response.ok) {
-            throw new Error(`Network status error: ${response.status}`);
-        }
-        const data = await response.json();
-        renderDirectoryCards(data.members);
-    } catch (error) {
-        console.error("Error gathering member directory records:", error);
-        displayContainer.innerHTML = `<p class="error-msg">Unable to process directory data records at this time.</p>`;
-    }
-}
+const navToggle = document.querySelector('#navToggle');
+const primaryNav = document.querySelector('#primaryNav');
 
-// Helper to resolve numeric values to membership label tiers
-function getMembershipTier(level) {
-    switch(level) {
-        case 3: return "Gold";
-        case 2: return "Silver";
-        case 1: 
-        default: return "Member";
-    }
-}
-
-// UI DOM Component generator
-function renderDirectoryCards(membersList) {
-    displayContainer.innerHTML = ""; 
-    
-    membersList.forEach(member => {
-        const cardSection = document.createElement("section");
-        cardSection.className = "directory-card";
-        
-        const tierLabel = getMembershipTier(member.membershipLevel);
-        
-        cardSection.innerHTML = `
-            <img src="${member.image}" alt="${member.name} Corporate Logo" width="150" height="75" loading="lazy">
-            <h3>${member.name}</h3>
-            <p class="street-address">${member.address}</p>
-            <p class="phone-number">${member.phone}</p>
-            <p class="membership-badge">Tier: <span class="tier-${tierLabel.toLowerCase()}">${tierLabel}</span></p>
-            <p class="web-routing"><a href="${member.website}" target="_blank" rel="noopener">Visit Website</a></p>
-        `;
-        
-        displayContainer.appendChild(cardSection);
+if (navToggle && primaryNav) {
+    navToggle.addEventListener('click', () => {
+        primaryNav.classList.toggle('open');
+        navToggle.textContent = primaryNav.classList.contains('open') ? '✕' : '☰';
     });
 }
 
-// View toggle mechanics
-gridButton.addEventListener("click", () => {
-    displayContainer.classList.add("grid-mode");
-    displayContainer.classList.remove("list-mode");
-    gridButton.classList.add("active");
-    listButton.classList.remove("active");
-});
+const yearNode = document.querySelector('#yearNode');
+const modNode = document.querySelector('#modNode');
 
-listButton.addEventListener("click", () => {
-    displayContainer.classList.add("list-mode");
-    displayContainer.classList.remove("grid-mode");
-    listButton.classList.add("active");
-    gridButton.classList.remove("active");
-});
+if (yearNode) {
+    yearNode.textContent = new Date().getFullYear();
+}
+if (modNode) {
+    modNode.textContent = `Last Modified: ${document.lastModified}`;
+}
 
-// Run engine on load
-fetchAndRenderMembers();
+const dataUrl = 'data/members.json';
+const displayArea = document.querySelector('#directoryDisplay');
+const btnGrid = document.querySelector('#viewGrid');
+const btnList = document.querySelector('#viewList');
+
+if (btnGrid && btnList && displayArea) {
+    btnGrid.addEventListener('click', () => {
+        displayArea.classList.add('grid-mode');
+        displayArea.classList.remove('list-mode');
+        btnGrid.classList.add('active');
+        btnList.classList.remove('active');
+    });
+
+    btnList.addEventListener('click', () => {
+        displayArea.classList.add('list-mode');
+        displayArea.classList.remove('grid-mode');
+        btnList.classList.add('active');
+        btnGrid.classList.remove('active');
+    });
+}
+
+async function getDirectoryData() {
+    if (!displayArea) return;
+
+    try {
+        const response = await fetch(dataUrl);
+        if (!response.ok) throw new Error(`HTTP error status: ${response.status}`);
+        const data = await response.json();
+        buildBusinessCards(data.members);
+    } catch (error) {
+        console.error('Error loading directory members:', error);
+        displayArea.innerHTML = `<p class="error">Unable to load chamber members at this time.</p>`;
+    }
+}
+
+function buildBusinessCards(businessArray) {
+    displayArea.innerHTML = '';
+
+    businessArray.forEach(company => {
+        let tierLabel = 'Member';
+        if (company.membershipLevel === 3) tierLabel = 'Gold';
+        if (company.membershipLevel === 2) tierLabel = 'Silver';
+
+        const card = document.createElement('section');
+        card.classList.add('directory-card', `tier-${tierLabel.toLowerCase()}`);
+
+        card.innerHTML = `
+            <div class="card-image-box">
+                <img src="${company.image}" alt="${company.name} logo" width="150" height="75" loading="lazy">
+            </div>
+            <h3>${company.name}</h3>
+            <p class="company-tagline">Verified Lira Chamber Business Partner</p>
+            <span class="membership-badge">${tierLabel} Partner</span>
+            <div class="company-details">
+                <p>📍 ${company.address}</p>
+                <p>📞 ${company.phone}</p>
+                <p class="company-web-link"><a href="${company.website}" target="_blank" rel="noopener">Visit Website</a></p>
+            </div>
+        `;
+        displayArea.appendChild(card);
+    });
+}
+
+getDirectoryData();

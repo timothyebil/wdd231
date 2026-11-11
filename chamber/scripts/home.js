@@ -31,10 +31,10 @@ async function fetchWeatherData() {
 function renderWeather(data) {
     if (!weatherDisplay || !forecastDisplay) return;
 
-    const currentItem = data.list;
+    const currentItem = data.list[0];
     const temp = Math.round(currentItem.main.temp);
-    const desc = currentItem.weather.description;
-    const iconCode = currentItem.weather.icon;
+    const desc = currentItem.weather[0].description;
+    const iconCode = currentItem.weather[0].icon;
 
     weatherDisplay.innerHTML = `
         <div class="weather-now">

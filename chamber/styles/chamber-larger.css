@@ -64,3 +64,10 @@
         text-align: right;
     }
 }
+
+    .join-layout {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 2.5rem;
+        align-items: start;
+    }

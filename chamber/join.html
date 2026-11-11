@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lira Chamber of Commerce - Join Us</title>
+    <meta name="description" content="Apply for membership with the Lira Chamber of Commerce. Explore Non-Profit, Bronze, Silver, and Gold business partnership tiers.">
+    <meta name="author" content="Timothy Ebil">
+    
+    <!-- Valid SVG Favicon -->
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    
+    <!-- Exact Google Fonts Links -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Lira Chamber of Commerce - Membership Application">
+    <meta property="og:description" content="Join our regional business network to access training, advertising spotlights, and trade events.">
+    <meta property="og:image" content="https://github.io">
+    <meta property="og:url" content="https://github.io">
+    <meta property="og:type" content="website">
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/chamber-small.css">
+    <link rel="stylesheet" href="styles/chamber-larger.css">
+    
+    <!-- Deferred JavaScript Modules -->
+    <script src="scripts/directory.js" defer></script>
+    <script src="scripts/join.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="brand-group">
+            <img src="images/logo.svg" class="site-logo" alt="SykWay Orbit Brand Logo" width="50" height="50">
+            <div class="brand-text">
+                <div class="header-title">Lira Chamber</div>
+                <span>Commerce &amp; Infrastructure Advancement</span>
+            </div>
+        </div>
+        <button id="navToggle" aria-label="Toggle Navigation Options Menu">☰</button>
+        <nav id="primaryNav">
+            <a href="index.html">Home</a>
+            <a href="directory.html">Directory</a>
+            <a href="join.html" class="active">Join Us</a>
+            <a href="discover.html">Discover</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Join the Chamber</h1>
+
+        <div class="join-layout">
+            <!-- Membership Application Form -->
+            <section class="chamber-card join-form-box">
+                <h2>Membership Application</h2>
+                <form method="get" action="thankyou.html" class="join-form">
+                    <label>
+                        First Name *
+                        <input type="text" name="fname" title="Enter your first name" autocomplete="given-name" required>
+                    </label>
+
+                    <label>
+                        Last Name *
+                        <input type="text" name="lname" title="Enter your last name" autocomplete="family-name" required>
+                    </label>
+
+                    <label>
+                        Organizational Title
+                        <input type="text" name="orgtitle" title="Letters, hyphens, and spaces only (minimum 7 characters)" autocomplete="organization-title" pattern="[A-Za-z\-\s]{7,}">
+                    </label>
+
+                    <label>
+                        Email Address *
+                        <input type="email" name="email" title="Enter a valid email address" autocomplete="email" placeholder="name@company.com" required>
+                    </label>
+
+                    <label>
+                        Mobile Phone Number *
+                        <input type="tel" name="phone" title="Enter your mobile phone number" autocomplete="tel" required>
+                    </label>
+
+                    <label>
+                        Business / Organization Name *
+                        <input type="text" name="organization" title="Enter your business or organization name" autocomplete="organization" required>
+                    </label>
+
+                    <label>
+                        Membership Level *
+                        <select name="membership" title="Select a membership tier" required>
+                            <option value="" disabled selected>Select a Membership Tier...</option>
+                            <option value="NP Membership">NP Membership (Non-Profit - No Fee)</option>
+                            <option value="Bronze Membership">Bronze Membership</option>
+                            <option value="Silver Membership">Silver Membership</option>
+                            <option value="Gold Membership">Gold Membership</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Business / Organization Description
+                        <textarea name="description" title="Describe your business or organization" rows="4"></textarea>
+                    </label>
+
+                    <input type="hidden" name="timestamp" id="formTimestamp">
+
+                    <button type="submit" class="cta-btn submit-btn">Submit Application</button>
+                </form>
+            </section>
+
+            <!-- Membership Tier Cards -->
+            <section class="tier-cards-box">
+                <h2>Membership Tiers</h2>
+
+                <div class="chamber-card tier-card anim-card-1">
+                    <h3>NP Membership</h3>
+                    <p>For registered non-profit organizations. No membership fee.</p>
+                    <button type="button" class="toggle-btn modal-open-btn" data-modal="modal-np">Learn More</button>
+                </div>
+
+                <div class="chamber-card tier-card anim-card-2">
+                    <h3>Bronze Membership</h3>
+                    <p>Essential directory listing and networking event invitations.</p>
+                    <button type="button" class="toggle-btn modal-open-btn" data-modal="modal-bronze">Learn More</button>
+                </div>
+
+                <div class="chamber-card tier-card tier-silver anim-card-3">
+                    <h3>Silver Membership</h3>
+                    <p>Includes home page spotlights, training workshops, and event discounts.</p>
+                    <button type="button" class="toggle-btn modal-open-btn" data-modal="modal-silver">Learn More</button>
+                </div>
+
+                <div class="chamber-card tier-card tier-gold anim-card-4">
+                    <h3>Gold Membership</h3>
+                    <p>Premier home page spotlight rotation, VIP sponsorship, and full publicity.</p>
+                    <button type="button" class="toggle-btn modal-open-btn" data-modal="modal-gold">Learn More</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Interactive Native Dialog Modals -->
+        <dialog id="modal-np" class="tier-modal">
+            <div class="modal-header">
+                <h3>NP Membership Benefits</h3>
+                <button type="button" class="modal-close-btn" aria-label="Close modal">✕</button>
+            </div>
+            <p><strong>Annual Fee:</strong> Free (Registered Non-Profits Only)</p>
+            <ul>
+                <li>Full listing in the online Chamber Business Directory</li>
+                <li>Invitations to monthly community networking mixers</li>
+                <li>Access to regional civic partnership forums</li>
+            </ul>
+        </dialog>
+
+        <dialog id="modal-bronze" class="tier-modal">
+            <div class="modal-header">
+                <h3>Bronze Membership Benefits</h3>
+                <button type="button" class="modal-close-btn" aria-label="Close modal">✕</button>
+            </div>
+            <p><strong>Annual Fee:</strong> UGX 350,000 / year</p>
+            <ul>
+                <li>Standard Business Directory profile with logo and link</li>
+                <li>10% discount on Chamber business boot camps and workshops</li>
+                <li>Monthly regional trade newsletter feature</li>
+            </ul>
+        </dialog>
+
+        <dialog id="modal-silver" class="tier-modal">
+            <div class="modal-header">
+                <h3>Silver Membership Benefits</h3>
+                <button type="button" class="modal-close-btn" aria-label="Close modal">✕</button>
+            </div>
+            <p><strong>Annual Fee:</strong> UGX 750,000 / year</p>
+            <ul>
+                <li>All Bronze benefits plus 25% discount on event booths</li>
+                <li>Eligibility for random Home Page Spotlight advertisements</li>
+                <li>Priority access to regional export and logistics seminars</li>
+            </ul>
+        </dialog>
+
+        <dialog id="modal-gold" class="tier-modal">
+            <div class="modal-header">
+                <h3>Gold Membership Benefits</h3>
+                <button type="button" class="modal-close-btn" aria-label="Close modal">✕</button>
+            </div>
+            <p><strong>Annual Fee:</strong> UGX 1,500,000 / year</p>
+            <ul>
+                <li>All Silver benefits plus guaranteed Home Page Spotlight rotation</li>
+                <li>VIP sponsorship recognition at the Annual Agro-Business Expo</li>
+                <li>Dedicated social media and press release promotions</li>
+            </ul>
+        </dialog>
+    </main>
+
+    <footer>
+        <div class="footer-contact"> 
+            <h3>Lira Chamber Office Hub</h3>
+            <p>Plot 12, Main Street, Lira City, Uganda</p>
+            <p>Phone: +256 414 555101 | info@lirachamber.org</p>
+            <p><a href="directory.html">Back to Directory Top</a></p>
+        </div>
+        <div class="footer-dev-meta">
+            <p>&copy; <span id="yearNode"></span> | <b>Timothy Ebil</b> | Uganda</p>
+            <p>Course Track: WDD 231 - Web Frontend Development II</p>

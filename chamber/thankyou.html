@@ -1,0 +1,70 @@
+---
+
+### 3. Confirmation Page: `chamber/thankyou.html`
+When a visitor submits `join.html`, this page reads the `GET` URL parameters and displays all required fields (`fname`, `lname`, `email`, `phone`, `organization`, and `timestamp`).
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lira Chamber of Commerce - Application Received</title>
+    <meta name="description" content="Thank you for submitting your Lira Chamber of Commerce membership application.">
+    <meta name="author" content="Timothy Ebil">
+    
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/chamber-small.css">
+    <link rel="stylesheet" href="styles/chamber-larger.css">
+    
+    <script src="scripts/directory.js" defer></script>
+    <script src="scripts/join.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="brand-group">
+            <img src="images/logo.svg" class="site-logo" alt="SykWay Orbit Brand Logo" width="50" height="50">
+            <div class="brand-text">
+                <div class="header-title">Lira Chamber</div>
+                <span>Commerce &amp; Infrastructure Advancement</span>
+            </div>
+        </div>
+        <button id="navToggle" aria-label="Toggle Navigation Options Menu">☰</button>
+        <nav id="primaryNav">
+            <a href="index.html">Home</a>
+            <a href="directory.html">Directory</a>
+            <a href="join.html" class="active">Join Us</a>
+            <a href="discover.html">Discover</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Application Confirmed</h1>
+        <section class="chamber-card confirmation-box">
+            <h2>Thank You for Applying!</h2>
+            <p>Your membership application has been logged with the Lira Chamber Office Hub. Below is a summary of your submitted details:</p>
+            <div id="submissionResults" class="results-list"></div>
+            <a href="index.html" class="cta-btn">Return to Home</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contact"> 
+            <h3>Lira Chamber Office Hub</h3>
+            <p>Plot 12, Main Street, Lira City, Uganda</p>
+            <p>Phone: +256 414 555101 | info@lirachamber.org</p>
+            <p><a href="directory.html">Back to Directory Top</a></p>
+        </div>
+        <div class="footer-dev-meta">
+            <p>&copy; <span id="yearNode"></span> | <b>Timothy Ebil</b> | Uganda</p>
+            <p>Course Track: WDD 231 - Web Frontend Development II</p>
+            <p id="modNode"></p>
+        </div>
+    </footer>
+</body>
+</html>

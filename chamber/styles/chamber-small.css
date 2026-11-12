@@ -219,7 +219,7 @@ footer { background-color: var(--primary-brand); color: var(--white); padding: 2
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
-.tier-card { animation: cardSlideUp 0.6s ease forwards; }
+.tier-card { animation: cardSlideUp 0.6s ease forwards; } 
 .anim-card-2 { animation-delay: 0.15s; }
 .anim-card-3 { animation-delay: 0.3s; }
 .anim-card-4 { animation-delay: 0.45s; }

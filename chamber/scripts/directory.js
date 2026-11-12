@@ -4,7 +4,6 @@
  * ==========================================================================
  */
 
-// 1. Mobile Navigation Toggle
 const navToggle = document.querySelector('#navToggle');
 const primaryNav = document.querySelector('#primaryNav');
 
@@ -15,7 +14,6 @@ if (navToggle && primaryNav) {
     });
 }
 
-// 2. Dynamic Footer Dates
 const yearNode = document.querySelector('#yearNode');
 const modNode = document.querySelector('#modNode');
 
@@ -26,7 +24,6 @@ if (modNode) {
     modNode.textContent = `Last Modified: ${document.lastModified}`;
 }
 
-// 3. Directory View Switcher & Member Card Loader
 const dataUrl = 'data/members.json';
 const displayArea = document.querySelector('#directoryDisplay');
 const btnGrid = document.querySelector('#viewGrid');

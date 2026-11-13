@@ -1,5 +1,5 @@
 /* ==========================================================================
-   WDD 231 Chamber Portal - Core Responsive Mobile/Tablet Stylesheet
+   WDD 231 Chamber Portal - Consolidated Mobile/Tablet Stylesheet
    ========================================================================== */
 
 :root {
@@ -25,7 +25,7 @@
     --silver-text: #1e293b;
     --member-bg: #e1f5fe;
     --member-border: #b3e5fc;
-    --member-text: #0288d1;
+    --member-text: #0369a1;
 }
 
 body {
@@ -35,43 +35,30 @@ body {
     margin: 0;
 }
 
-/* --- Header & Navigation --- */
-header {
-    background-color: var(--primary-brand);
-    color: var(--white);
-    padding: 1rem;
+/* --- Consolidated Flex & Surface Utilities --- */
+header, #primaryNav, .home-grid, .spotlight-grid, .directory-card, .list-mode {
     display: flex;
     flex-direction: column;
-    position: relative;
 }
 
+.chamber-card, .spotlight-card, .directory-card, .directory-control-bar {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--border-ui);
+}
+
+/* --- Header & Navigation --- */
+header { background-color: var(--primary-brand); color: var(--white); padding: 1rem; position: relative; }
 .brand-group { display: flex; align-items: center; gap: 1rem; }
 .brand-text .header-title { font-size: 1.6rem; font-weight: 700; }
 .brand-text span { font-size: 0.85rem; color: var(--text-slate); }
 .site-logo { transition: transform 0.6s ease; }
 .brand-group:hover .site-logo { transform: rotate(360deg); }
 
-#navToggle {
-    position: absolute;
-    right: 1rem;
-    top: 1.3rem;
-    background: #00000000;
-    border: 0;
-    color: var(--white);
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-#primaryNav {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
-}
-
+#navToggle { position: absolute; right: 1rem; top: 1.3rem; background: #00000000; border: 0; color: var(--white); font-size: 2rem; cursor: pointer; }
+#primaryNav { width: 100%; max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; }
 #primaryNav.open { max-height: 250px; opacity: 1; margin-top: 1rem; }
 #primaryNav a { color: var(--white); text-decoration: none; padding: 0.75rem 1rem; border-top: 1px solid var(--nav-border); }
 #primaryNav a:hover, #primaryNav a.active { background-color: var(--secondary-brand); }
@@ -81,34 +68,24 @@ main { padding: 1rem; max-width: 1200px; margin: 0 auto; }
 main h1 { text-align: center; color: var(--primary-brand); margin: 0 0 1.5rem 0; font-size: 2.2rem; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
-/* --- Shared Card Surfaces --- */
-.chamber-card, .spotlight-card, .directory-card {
-    background: var(--white);
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-subtle);
-    border: 1px solid var(--border-ui);
-}
-
 /* --- Home Dashboard Modules (index.html) --- */
-.home-grid, .spotlight-grid { display: flex; flex-direction: column; gap: 1.5rem; }
-.hero-box { position: relative; width: 100%; overflow: hidden; border-radius: 8px; box-shadow: var(--shadow-subtle); border: 1px solid var(--border-ui); }
+.home-grid, .spotlight-grid { gap: 1.5rem; }
+.hero-box { position: relative; width: 100%; overflow: hidden; border-radius: 8px; border: 1px solid var(--border-ui); }
 .hero-img { width: 100%; height: auto; max-height: 400px; object-fit: cover; display: block; }
-.cta-overlay { position: relative; background: var(--primary-brand); color: var(--white); padding: 1.5rem; text-align: center; }
+.cta-overlay { background: var(--primary-brand); color: var(--white); padding: 1.5rem; text-align: center; }
 .cta-overlay h2 { margin: 0 0 0.5rem 0; font-size: 1.4rem; }
 
-.cta-btn {
+.cta-btn, .toggle-btn {
     display: inline-block;
-    background-color: var(--accent-red);
-    color: var(--white);
-    padding: 0.6rem 1.4rem;
+    padding: 0.6rem 1.3rem;
     border-radius: 4px;
     font-weight: 700;
     text-decoration: none;
-    margin-top: 0.5rem;
-    text-transform: uppercase;
+    cursor: pointer;
+    border: 0;
 }
-.cta-btn:hover { background-color: var(--secondary-brand); }
+.cta-btn { background-color: var(--accent-red); color: var(--white); margin-top: 0.5rem; text-transform: uppercase; }
+.cta-btn:hover, .toggle-btn.active { background-color: var(--secondary-brand); color: var(--white); }
 
 .event-item { margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px dashed var(--border-ui); }
 .event-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
@@ -116,7 +93,7 @@ main h1 { text-align: center; color: var(--primary-brand); margin: 0 0 1.5rem 0;
 
 .weather-now { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; }
 .main-temp { font-size: 2rem; font-weight: 700; color: var(--primary-brand); }
-.weather-desc { font-style: italic; color: var(--text-muted); }
+.weather-desc, .company-tagline { font-style: italic; color: var(--text-muted); }
 .weather-divider, .spotlight-divider { border: 0; height: 1px; background: var(--border-ui); margin: 1rem 0; }
 
 .forecast-grid { display: flex; justify-content: space-between; gap: 0.5rem; margin-top: 0.5rem; }
@@ -126,53 +103,24 @@ main h1 { text-align: center; color: var(--primary-brand); margin: 0 0 1.5rem 0;
 
 .spotlight-section-wrapper h2 { color: var(--primary-brand); margin: 0 0 1rem 0; }
 .spot-info { margin: 0.4rem 0; font-size: 0.9rem; }
-.spot-link { display: inline-block; margin-top: 0.75rem; color: var(--secondary-brand); text-decoration: none; font-weight: 700; }
+.spot-link, .company-web-link a { color: var(--primary-brand); text-decoration: underline; font-weight: 700; }
+.spot-link { display: inline-block; margin-top: 0.75rem; }
 
 /* --- Directory Controls & Cards (directory.html) --- */
-.directory-control-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    background: var(--white);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow-subtle);
-}
+.directory-control-bar { align-items: center; gap: 1rem; margin-bottom: 2rem; padding: 1rem; }
 .directory-control-bar h2 { color: var(--primary-brand); }
-
-.toggle-btn {
-    background: var(--border-ui);
-    border: 0;
-    padding: 0.5rem 1.25rem;
-    font-weight: 700;
-    cursor: pointer;
-    border-radius: 4px;
-    color: var(--primary-brand);
-    margin: 0 0.25rem;
-}
-.toggle-btn.active { background: var(--secondary-brand); color: var(--white); }
+.toggle-btn { background: var(--border-ui); color: var(--primary-brand); margin: 0 0.25rem; }
 
 .grid-mode { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-.directory-card { display: flex; flex-direction: column; position: relative; }
+.directory-card { position: relative; }
 .grid-mode .directory-card { text-align: center; align-items: center; }
 .card-image-box { height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
 .card-image-box img { max-width: 100%; height: auto; object-fit: contain; }
 .grid-mode .company-details { margin-top: auto; text-align: left; width: 100%; font-size: 0.9rem; border-top: 1px solid var(--bg-canvas); padding-top: 1rem; }
-.company-tagline { font-style: italic; color: var(--text-muted); margin: 0.5rem 0 1rem 0; }
-.company-web-link a { color: var(--secondary-brand); text-decoration: none; }
+.company-tagline { margin: 0.5rem 0 1rem 0; }
 
-/* --- Unified Membership Badges & Tier Accents --- */
-.membership-badge {
-    display: inline-block;
-    padding: 0.35rem 0.9rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-top: 0.5rem;
-}
+/* --- Membership Badges & Tier Accents --- */
+.membership-badge { display: inline-block; padding: 0.35rem 0.9rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-top: 0.5rem; }
 .tier-gold .membership-badge { background: var(--gold-bg); border: 1px solid var(--gold-border); color: var(--gold-text); }
 .tier-silver .membership-badge { background: var(--silver-bg); border: 1px solid var(--silver-border); color: var(--silver-text); }
 .tier-member .membership-badge { background: var(--member-bg); border: 1px solid var(--member-border); color: var(--member-text); }
@@ -180,7 +128,7 @@ main h1 { text-align: center; color: var(--primary-brand); margin: 0 0 1.5rem 0;
 .tier-silver { border-top: 4px solid var(--silver-border); }
 
 /* --- List Row Presentation --- */
-.list-mode { display: flex; flex-direction: column; gap: 0.5rem; }
+.list-mode { gap: 0.5rem; }
 .list-mode .directory-card { padding: 1rem; border-radius: 4px; }
 .list-mode .card-image-box, .list-mode .company-tagline, .list-mode .membership-badge { display: none; }
 .list-mode .directory-card h3 { margin: 0 0 0.5rem 0; color: var(--primary-brand); }
@@ -195,39 +143,16 @@ footer { background-color: var(--primary-brand); color: var(--white); padding: 2
 
 /* --- Tablet Breakpoint (640px+) --- */
 @media screen and (min-width: 640px) {
-    header { flex-direction: row; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+    header, .directory-control-bar, .list-mode .directory-card { flex-direction: row; justify-content: space-between; align-items: center; }
+    header { padding: 1rem 2rem; }
     #navToggle { display: none; }
     #primaryNav { flex-direction: row; width: auto; max-height: none; opacity: 1; overflow: visible; }
     #primaryNav a { border-top: 0; margin-left: 0.5rem; border-radius: 4px; padding: 0.5rem 1rem; }
     .cta-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: var(--overlay-bg); }
-    .directory-control-bar { flex-direction: row; justify-content: space-between; padding: 1.25rem 2rem; }
+    .directory-control-bar { padding: 1.25rem 2rem; }
     .grid-mode { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .list-mode .directory-card { flex-direction: row; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; }
+    .list-mode .directory-card { padding: 0.75rem 1.5rem; }
     .list-mode .directory-card h3 { flex: 1; margin: 0; font-size: 1.1rem; }
     .list-mode .company-details { display: flex; flex: 2; justify-content: space-between; gap: 1rem; }
     .list-mode .company-details p { margin: 0; }
 }
-
-/* --- Join Page Form, Tier Cards & Modals --- */
-.join-layout, .tier-cards-box, .join-form { display: flex; flex-direction: column; gap: 1.25rem; }
-.join-form label { display: flex; flex-direction: column; font-weight: 700; font-size: 0.9rem; gap: 0.35rem; }
-.join-form input, .join-form select, .join-form textarea { padding: 0.65rem; border: 1px solid var(--border-ui); border-radius: 4px; font: inherit; }
-.submit-btn { border: 0; cursor: pointer; align-self: flex-start; }
-.modal-open-btn { display: inline-block; text-decoration: none; margin-top: 0.5rem; }
-
-@keyframes cardSlideUp {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.tier-card { animation: cardSlideUp 0.6s ease forwards; } 
-.anim-card-2 { animation-delay: 0.15s; }
-.anim-card-3 { animation-delay: 0.3s; }
-.anim-card-4 { animation-delay: 0.45s; }
-
-.tier-modal { border: 1px solid var(--border-ui); border-radius: 8px; padding: 1.5rem; max-width: 450px; width: 90%; }
-.tier-modal::backdrop { background: var(--overlay-bg); }
-.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-ui); padding-bottom: 0.75rem; margin-bottom: 1rem; }
-.modal-header h3 { color: var(--primary-brand); }
-.modal-close-btn { background: var(--border-ui); border: 0; border-radius: 4px; padding: 0.3rem 0.65rem; font-weight: 700; cursor: pointer; }
-.confirmation-box { max-width: 650px; margin: 0 auto; }
-.results-list { background: var(--neutral-light); padding: 1rem; border-radius: 6px; border: 1px solid var(--border-ui); margin: 1rem 0; }

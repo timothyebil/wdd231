@@ -3,46 +3,40 @@
 }
 
 :root {
-    --primary-brand: #1d3557;
-    --secondary-brand: #457b9d;
-    --accent-red: #b91c1c;
-    --bg-canvas: #f1f5f9;
-    --white: #ffffff;
-    --zebra-row: #e2e8f0;
-    --text-charcoal: #2b2d42;
-    --text-slate: #cbd5e1;
-    --text-muted: #475569;
+    --primary: #1d3557;
+    --secondary: #457b9d;
+    --accent: #b91c1c;
+    --bg: #f1f5f9;
+    --surface: #ffffff;
+    --zebra: #e2e8f0;
+    --text: #2b2d42;
+    --slate: #cbd5e1;
+    --muted: #475569;
     --link-light: #93c5fd;
-    --border-ui: #cbd5e1;
-    --overlay-bg: rgba(29, 53, 87, 0.92);
-    --shadow-subtle: 0 4px 8px rgba(0, 0, 0, 0.06);
-
+    --overlay: rgba(29, 53, 87, 0.92);
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
     --gold-bg: #fef3c7;
-    --gold-border: #d97706;
-    --gold-text: #78350f;
-    --silver-bg: #f1f5f9;
-    --silver-border: #64748b;
-    --silver-text: #1e293b;
+    --gold-bdr: #d97706;
+    --gold-txt: #78350f;
+    --silver-bdr: #64748b;
     --member-bg: #e0f2fe;
-    --member-border: #0284c7;
-    --member-text: #0369a1;
+    --member-bdr: #0284c7;
+    --member-txt: #0369a1;
 }
 
 html, body {
     max-width: 100%;
     overflow-x: hidden;
     margin: 0;
-    padding: 0;
     font-family: 'Roboto', sans-serif;
-    color: var(--text-charcoal);
-    background-color: var(--bg-canvas);
+    color: var(--text);
+    background: var(--bg);
     line-height: 1.5;
 }
 
-/* --- Header & Responsive Navigation --- */
 header {
-    background-color: var(--primary-brand);
-    color: var(--white);
+    background: var(--primary);
+    color: var(--surface);
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -56,25 +50,15 @@ header {
     padding-right: 2.5rem;
 }
 
-.brand-text .header-title {
+.header-title {
     font-size: 1.5rem;
     font-weight: 700;
-    line-height: 1.2;
 }
 
 .brand-text span {
     display: block;
     font-size: 0.8rem;
-    color: var(--text-slate);
-}
-
-.site-logo {
-    flex-shrink: 0;
-    transition: transform 0.6s ease;
-}
-
-.brand-group:hover .site-logo {
-    transform: rotate(360deg);
+    color: var(--slate);
 }
 
 #navToggle {
@@ -83,16 +67,14 @@ header {
     top: 1.1rem;
     background: transparent;
     border: 0;
-    color: var(--white);
+    color: var(--surface);
     font-size: 1.8rem;
     cursor: pointer;
-    padding: 0.25rem 0.5rem;
 }
 
 #primaryNav {
     display: flex;
     flex-direction: column;
-    width: 100%;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
@@ -106,22 +88,18 @@ header {
 }
 
 #primaryNav a {
-    color: var(--white);
+    color: var(--surface);
     text-decoration: none;
     padding: 0.75rem 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
-    font-weight: 400;
 }
 
-#primaryNav a:hover,
-#primaryNav a.active {
-    background-color: var(--secondary-brand);
+#primaryNav a:hover, #primaryNav a.active {
+    background: var(--secondary);
     font-weight: 700;
 }
 
-/* --- Main Layout & Controls --- */
 main {
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 1.25rem 1rem;
@@ -129,9 +107,8 @@ main {
 
 main h1 {
     text-align: center;
-    color: var(--primary-brand);
-    margin: 0 0 1.25rem 0;
-    font-size: 2rem;
+    color: var(--primary);
+    margin: 0 0 1.25rem;
 }
 
 .visually-hidden {
@@ -140,11 +117,9 @@ main h1 {
     height: 1px;
     overflow: hidden;
     clip-path: inset(50%);
-    white-space: nowrap;
 }
 
-/* --- Home Page Hero & CTA Overlay --- */
-.home-grid {
+.home-grid, .spotlight-grid {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -152,78 +127,64 @@ main h1 {
 
 .hero-box {
     position: relative;
-    width: 100%;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid var(--border-ui);
-    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--slate);
 }
 
 .hero-img {
     width: 100%;
-    height: auto;
     max-height: 420px;
     object-fit: cover;
     display: block;
 }
 
 .cta-overlay {
-    background-color: var(--overlay-bg);
-    color: var(--white);
-    padding: 1.25rem 1.5rem;
+    background: var(--overlay);
+    color: var(--surface);
+    padding: 1.25rem;
     text-align: center;
 }
 
 .cta-overlay h2 {
-    margin: 0 0 0.35rem 0;
-    color: var(--white);
-    font-size: 1.45rem;
+    margin: 0 0 0.35rem;
+    color: var(--surface);
 }
 
 .cta-overlay p {
-    margin: 0 0 0.85rem 0;
-    color: var(--text-slate);
+    margin: 0 0 0.85rem;
+    color: var(--slate);
 }
 
 .cta-btn {
     display: inline-block;
-    background-color: var(--accent-red);
-    color: var(--white);
+    background: var(--accent);
+    color: var(--surface);
     padding: 0.65rem 1.5rem;
     border-radius: 4px;
     font-weight: 700;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: background-color 0.2s ease;
 }
 
-.cta-btn:hover {
-    background-color: var(--secondary-brand);
-}
-
-/* --- Shared Cards, Events, Weather & Spotlights --- */
-.chamber-card,
-.spotlight-card {
-    background: var(--white);
+.chamber-card, .spotlight-card, .grid-mode .directory-card {
+    background: var(--surface);
     border-radius: 8px;
     padding: 1.5rem;
-    border: 1px solid var(--border-ui);
-    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--slate);
+    box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
 }
 
-.chamber-card h2,
-.spotlight-section-wrapper h2 {
-    margin-top: 0;
-    color: var(--primary-brand);
+.chamber-card h2, .spotlight-section-wrapper h2, .directory-control-bar h2 {
+    margin: 0 0 0.75rem;
+    color: var(--primary);
 }
 
 .event-item {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
-    border-bottom: 1px dashed var(--border-ui);
+    border-bottom: 1px dashed var(--slate);
 }
 
 .event-item:last-child {
@@ -232,9 +193,9 @@ main h1 {
     padding-bottom: 0;
 }
 
-.event-date {
+.event-date, .weather-desc, .forecast-day p {
     font-weight: 700;
-    color: var(--secondary-brand);
+    color: var(--secondary);
     margin: 0.25rem 0;
 }
 
@@ -247,85 +208,46 @@ main h1 {
 .main-temp {
     font-size: 2.2rem;
     font-weight: 700;
-    color: var(--primary-brand);
+    color: var(--primary);
 }
 
-.weather-desc {
-    font-weight: 700;
-    margin: 0;
-}
-
-.weather-divider,
-.spotlight-divider {
+.weather-divider, .spotlight-divider {
     border: 0;
     height: 1px;
-    background: var(--border-ui);
+    background: var(--slate);
     margin: 1rem 0;
     width: 100%;
 }
 
 .forecast-grid {
     display: flex;
-    justify-content: space-between;
     gap: 0.5rem;
 }
 
 .forecast-day {
     flex: 1;
-    background: var(--bg-canvas);
+    background: var(--bg);
     padding: 0.65rem;
     border-radius: 6px;
     text-align: center;
-    border: 1px solid var(--border-ui);
+    border: 1px solid var(--slate);
 }
 
 .forecast-day h4 {
-    margin: 0 0 0.25rem 0;
-    color: var(--primary-brand);
+    margin: 0 0 0.25rem;
+    color: var(--primary);
 }
 
-.forecast-day p {
-    margin: 0;
-    font-weight: 700;
-}
-
-.spotlight-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.spot-info {
-    margin: 0.35rem 0;
-    font-size: 0.9rem;
-}
-
-.spot-link {
-    display: inline-block;
-    margin-top: 0.75rem;
-    color: var(--primary-brand);
-    font-weight: 700;
-    text-decoration: underline;
-}
-
-/* --- Directory Controls & Cards --- */
 .directory-control-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    background: var(--white);
+    background: var(--surface);
     padding: 1rem;
     margin-bottom: 1.75rem;
     border-radius: 8px;
-    border: 1px solid var(--border-ui);
-    box-shadow: var(--shadow-subtle);
-}
-
-.directory-control-bar h2 {
-    margin: 0;
-    font-size: 1.25rem;
-    color: var(--primary-brand);
+    border: 1px solid var(--slate);
 }
 
 .view-toggle-buttons {
@@ -334,24 +256,20 @@ main h1 {
 }
 
 .toggle-btn {
-    background: var(--bg-canvas);
-    color: var(--primary-brand);
-    border: 1px solid var(--border-ui);
+    background: var(--bg);
+    color: var(--primary);
+    border: 1px solid var(--slate);
     padding: 0.55rem 1.1rem;
     border-radius: 4px;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.toggle-btn.active,
-.toggle-btn:hover {
-    background: var(--secondary-brand);
-    color: var(--white);
-    border-color: var(--secondary-brand);
+.toggle-btn.active, .toggle-btn:hover {
+    background: var(--secondary);
+    color: var(--surface);
 }
 
-/* --- Grid View Mode --- */
 .grid-mode {
     display: grid;
     grid-template-columns: 1fr;
@@ -359,20 +277,12 @@ main h1 {
 }
 
 .grid-mode .directory-card {
-    background: var(--white);
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-subtle);
-    border: 1px solid var(--border-ui);
-    display: flex;
-    flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
 .card-image-box {
     height: 90px;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -385,41 +295,38 @@ main h1 {
     object-fit: contain;
 }
 
-.directory-card h3,
-.spotlight-card h3 {
+.directory-card h3, .spotlight-card h3 {
     margin: 0.25rem 0;
-    color: var(--primary-brand);
-    font-size: 1.2rem;
+    color: var(--primary);
 }
 
 .company-tagline {
     font-style: italic;
-    color: var(--text-muted);
+    color: var(--muted);
     font-size: 0.9rem;
-    margin: 0.4rem 0 1rem 0;
+    margin: 0.4rem 0 1rem;
 }
 
 .grid-mode .company-details {
     width: 100%;
     margin-top: auto;
     padding-top: 0.85rem;
-    border-top: 1px solid var(--bg-canvas);
+    border-top: 1px solid var(--bg);
     text-align: left;
     font-size: 0.9rem;
 }
 
-.company-details p {
+.company-details p, .spot-info {
     margin: 0.35rem 0;
+    font-size: 0.9rem;
     word-break: break-word;
 }
 
-.company-web-link a {
-    color: var(--primary-brand);
+.company-web-link a, .spot-link {
+    color: var(--primary);
     font-weight: 700;
-    text-decoration: underline;
 }
 
-/* --- Membership Badges & Top Borders --- */
 .membership-badge {
     display: inline-block;
     padding: 0.3rem 0.85rem;
@@ -430,58 +337,43 @@ main h1 {
     margin-top: 0.85rem;
 }
 
-.tier-gold { border-top: 4px solid var(--gold-border); }
-.tier-gold .membership-badge { background: var(--gold-bg); border: 1px solid var(--gold-border); color: var(--gold-text); }
+.tier-gold { border-top: 4px solid var(--gold-bdr); }
+.tier-gold .membership-badge { background: var(--gold-bg); border: 1px solid var(--gold-bdr); color: var(--gold-txt); }
 
-.tier-silver { border-top: 4px solid var(--silver-border); }
-.tier-silver .membership-badge { background: var(--silver-bg); border: 1px solid var(--silver-border); color: var(--silver-text); }
+.tier-silver { border-top: 4px solid var(--silver-bdr); }
+.tier-silver .membership-badge { background: var(--bg); border: 1px solid var(--silver-bdr); color: var(--text); }
 
-.tier-member { border-top: 4px solid var(--member-border); }
-.tier-member .membership-badge { background: var(--member-bg); border: 1px solid var(--member-border); color: var(--member-text); }
+.tier-member { border-top: 4px solid var(--member-bdr); }
+.tier-member .membership-badge { background: var(--member-bg); border: 1px solid var(--member-bdr); color: var(--member-txt); }
 
-/* --- List View Mode (Imageless Clean Rows with Zebra Striping) --- */
 .list-mode {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--border-ui);
+    border: 1px solid var(--slate);
     border-radius: 8px;
     overflow: hidden;
-    background: var(--white);
-    box-shadow: var(--shadow-subtle);
+    background: var(--surface);
 }
 
 .list-mode .directory-card {
     padding: 1rem;
-    border-top: none;
-    border-bottom: 1px solid var(--border-ui);
+    border-bottom: 1px solid var(--slate);
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
 }
 
-.list-mode .directory-card:last-child {
-    border-bottom: none;
-}
-
 .list-mode .directory-card:nth-child(even) {
-    background-color: var(--zebra-row);
+    background: var(--zebra);
 }
 
-.list-mode .card-image-box,
-.list-mode .company-tagline,
-.list-mode .membership-badge {
+.list-mode .card-image-box, .list-mode .company-tagline, .list-mode .membership-badge {
     display: none;
 }
 
-.list-mode .company-details p {
-    margin: 0.2rem 0;
-    font-size: 0.9rem;
-}
-
-/* --- Footer --- */
 footer {
-    background-color: var(--primary-brand);
-    color: var(--white);
+    background: var(--primary);
+    color: var(--surface);
     padding: 2rem 1rem;
     text-align: center;
     margin-top: 3rem;
@@ -493,20 +385,12 @@ footer {
     margin-bottom: 1.25rem;
 }
 
-.footer-contact h3 {
-    margin: 0 0 0.5rem 0;
-}
-
-.footer-contact p {
-    margin: 0.3rem 0;
-}
-
 .footer-contact a {
-color: var(--link-light);
-text-decoration: underline;
+    color: var(--link-light);
 }
+
 .footer-dev-meta p {
-margin: 0.35rem 0;
-font-size: 0.9rem;
-color: var(--text-slate);
+    margin: 0.35rem 0;
+    font-size: 0.9rem;
+    color: var(--slate);
 }

@@ -31,7 +31,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background: var(--overlay-bg);
+        background-color: rgba(29, 53, 87, 0.92);
     }
 
     .directory-control-bar {

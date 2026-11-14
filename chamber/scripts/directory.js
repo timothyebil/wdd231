@@ -1,70 +1,95 @@
-const jsonPath = "data/members.json";
-const displayContainer = document.querySelector("#directoryDisplay");
-const gridButton = document.querySelector("#viewGrid");
-const listButton = document.querySelector("#viewList");
+/**
+ * ==========================================================================
+ * WDD 231 Chamber Portal - Shared Navigation, Footer & Directory Engine
+ * ==========================================================================
+ */
+document.addEventListener("DOMContentLoaded", () => {
+    const navToggle = document.getElementById("navToggle");
+    const primaryNav = document.getElementById("primaryNav");
+    const viewGridBtn = document.getElementById("viewGrid");
+    const viewListBtn = document.getElementById("viewList");
+    const displayContainer = document.getElementById("directoryDisplay");
+    const yearSpan = document.getElementById("yearNode");
+    const modParagraph = document.getElementById("modNode");
 
-// Asynchronous data retrieval engine
-async function fetchAndRenderMembers() {
-    try {
-        const response = await fetch(jsonPath);
-        if (!response.ok) {
-            throw new Error(`Network status error: ${response.status}`);
+    // Responsive Navigation Toggle
+    if (navToggle && primaryNav) {
+        navToggle.addEventListener("click", () => {
+            const isOpen = primaryNav.classList.toggle("open");
+            navToggle.textContent = isOpen ? "✖" : "☰";
+            navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+    }
+
+    // Dynamic Footer Dates
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    if (modParagraph) modParagraph.textContent = `Last Modified: ${document.lastModified}`;
+
+    // Async/Await JSON Fetch
+    const dataUrl = "./data/members.json";
+
+    async function fetchChamberMembers() {
+        try {
+            const response = await fetch(dataUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP Error: ${response.status}`);
+            }
+            const members = await response.json();
+            renderDirectory(members);
+        } catch (error) {
+            console.error("Failed to fetch member directory:", error);
+            if (displayContainer) {
+                displayContainer.innerHTML = `<p class="error-msg">Unable to load chamber members at this time.</p>`;
+            }
         }
-        const data = await response.json();
-        renderDirectoryCards(data.members);
-    } catch (error) {
-        console.error("Error gathering member directory records:", error);
-        displayContainer.innerHTML = `<p class="error-msg">Unable to process directory data records at this time.</p>`;
     }
-}
 
-// Helper to resolve numeric values to membership label tiers
-function getMembershipTier(level) {
-    switch(level) {
-        case 3: return "Gold";
-        case 2: return "Silver";
-        case 1: 
-        default: return "Member";
+    // Render Member Cards
+    function renderDirectory(members) {
+        if (!displayContainer) return;
+        displayContainer.innerHTML = "";
+
+        const tierLabels = { 1: "Member", 2: "Silver", 3: "Gold" };
+        const tierClasses = { 1: "tier-member", 2: "tier-silver", 3: "tier-gold" };
+
+        members.forEach((member) => {
+            const card = document.createElement("section");
+            card.className = `directory-card ${tierClasses[member.membershipLevel] || "tier-member"}`;
+
+            card.innerHTML = `
+                <div class="card-image-box">
+                    <img src="images/member-logos/${member.image}" alt="${member.name} Logo" loading="lazy" width="180" height="90">
+                </div>
+                <h3>${member.name}</h3>
+                <p class="company-tagline">${member.tagline || ""}</p>
+                <div class="company-details">
+                    <p><strong>Address:</strong> ${member.address}</p>
+                    <p><strong>Phone:</strong> ${member.phone}</p>
+                    <p class="company-web-link"><a href="${member.website}" target="_blank" rel="noopener">Visit Website</a></p>
+                </div>
+                <span class="membership-badge">${tierLabels[member.membershipLevel] || "Member"} Tier</span>
+            `;
+
+            displayContainer.appendChild(card);
+        });
     }
-}
 
-// UI DOM Component generator
-function renderDirectoryCards(membersList) {
-    displayContainer.innerHTML = ""; 
-    
-    membersList.forEach(member => {
-        const cardSection = document.createElement("section");
-        cardSection.className = "directory-card";
-        
-        const tierLabel = getMembershipTier(member.membershipLevel);
-        
-        cardSection.innerHTML = `
-            <img src="${member.image}" alt="${member.name} Corporate Logo" width="150" height="75" loading="lazy">
-            <h3>${member.name}</h3>
-            <p class="street-address">${member.address}</p>
-            <p class="phone-number">${member.phone}</p>
-            <p class="membership-badge">Tier: <span class="tier-${tierLabel.toLowerCase()}">${tierLabel}</span></p>
-            <p class="web-routing"><a href="${member.website}" target="_blank" rel="noopener">Visit Website</a></p>
-        `;
-        
-        displayContainer.appendChild(cardSection);
-    });
-}
+    // Grid / List Layout Toggle
+    if (viewGridBtn && viewListBtn && displayContainer) {
+        viewGridBtn.addEventListener("click", () => {
+            displayContainer.classList.remove("list-mode");
+            displayContainer.classList.add("grid-mode");
+            viewGridBtn.classList.add("active");
+            viewListBtn.classList.remove("active");
+        });
 
-// View toggle mechanics
-gridButton.addEventListener("click", () => {
-    displayContainer.classList.add("grid-mode");
-    displayContainer.classList.remove("list-mode");
-    gridButton.classList.add("active");
-    listButton.classList.remove("active");
+        viewListBtn.addEventListener("click", () => {
+            displayContainer.classList.remove("grid-mode");
+            displayContainer.classList.add("list-mode");
+            viewListBtn.classList.add("active");
+            viewGridBtn.classList.remove("active");
+        });
+    }
+
+    fetchChamberMembers();
 });
-
-listButton.addEventListener("click", () => {
-    displayContainer.classList.add("list-mode");
-    displayContainer.classList.remove("grid-mode");
-    listButton.classList.add("active");
-    gridButton.classList.remove("active");
-});
-
-// Run engine on load
-fetchAndRenderMembers();

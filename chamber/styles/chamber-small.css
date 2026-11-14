@@ -1,51 +1,48 @@
-/* ==========================================================================
-   WDD 231 Chamber Portal - Core Responsive Mobile/Tablet Stylesheet
-   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 :root {
-    /* --- Core Brand Theme Variables --- */
     --primary-brand: #1d3557;
     --secondary-brand: #457b9d;
-    --accent-red: #e63946;
-    
-    /* --- Canvas, Surfaces & Typography Standardizations --- */
-    --neutral-light: #f8f9fa;
-    --bg-canvas: #f1f5f9;       /* Standardized background token */
-    --white: #ffffff;           /* Standardized pure white token */
+    --accent-red: #b91c1c;
+    --bg-canvas: #f1f5f9;
+    --white: #ffffff;
+    --zebra-row: #e2e8f0;
     --text-charcoal: #2b2d42;
+    --text-slate: #cbd5e1;
+    --text-muted: #475569;
+    --link-light: #93c5fd;
+    --border-ui: #cbd5e1;
+    --overlay-bg: rgba(29, 53, 87, 0.92);
     --shadow-subtle: 0 4px 8px rgba(0, 0, 0, 0.06);
-    
-    /* --- Interactive Borders and Form Toggles --- */
-    --border-ui: #e2e8f0;
-    --text-muted: #64748b;
-    --nav-border: rgba(255, 255, 255, 0.1);
-    
-    /* --- Membership Level Presentation Tiers --- */
-    --gold-bg: #fff3cd;
-    --gold-border: #ffc107;
-    --gold-text: #856404;
-    
-    --silver-bg: #e2e3e5;
-    --silver-border: #6c757d;
-    --silver-text: #383d41;
-    
-    --member-bg: #e1f5fe;
-    --member-border: #b3e5fc;
-    --member-text: #0288d1;
+
+    --gold-bg: #fef3c7;
+    --gold-border: #d97706;
+    --gold-text: #78350f;
+    --silver-bg: #f1f5f9;
+    --silver-border: #64748b;
+    --silver-text: #1e293b;
+    --member-bg: #e0f2fe;
+    --member-border: #0284c7;
+    --member-text: #0369a1;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    color: var(--text-charcoal);
-    background-color: var(--bg-canvas); /* Fixed raw string string lookup */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-charcoal);
+    background-color: var(--bg-canvas);
+    line-height: 1.5;
 }
 
-/* --- Global Navigation Header Architecture --- */
+/* --- Header & Responsive Navigation --- */
 header {
     background-color: var(--primary-brand);
-    color: var(--white); /* Fixed raw string lookup */
+    color: var(--white);
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -55,22 +52,24 @@ header {
 .brand-group {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
+    padding-right: 2.5rem;
 }
 
 .brand-text .header-title {
-    margin: 0;
-    font-size: 1.6rem;
-    letter-spacing: 0.5px;
+    font-size: 1.5rem;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .brand-text span {
-    font-size: 0.85rem;
-    color: #cbd5e1; /* Maintained layout helper value */
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-slate);
 }
 
 .site-logo {
+    flex-shrink: 0;
     transition: transform 0.6s ease;
 }
 
@@ -81,12 +80,13 @@ header {
 #navToggle {
     position: absolute;
     right: 1rem;
-    top: 1.3rem;
-    background: none;
-    border: none;
+    top: 1.1rem;
+    background: transparent;
+    border: 0;
     color: var(--white);
-    font-size: 2rem;
+    font-size: 1.8rem;
     cursor: pointer;
+    padding: 0.25rem 0.5rem;
 }
 
 #primaryNav {
@@ -96,12 +96,11 @@ header {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
-    margin-top: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
 }
 
 #primaryNav.open {
-    max-height: 250px;
+    max-height: 260px;
     opacity: 1;
     margin-top: 1rem;
 }
@@ -110,231 +109,404 @@ header {
     color: var(--white);
     text-decoration: none;
     padding: 0.75rem 1rem;
-    border-top: 1px solid var(--nav-border);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-weight: 400;
 }
 
-#primaryNav a:hover, #primaryNav a.active {
+#primaryNav a:hover,
+#primaryNav a.active {
     background-color: var(--secondary-brand);
+    font-weight: 700;
 }
 
-/* --- Core Control Panel Presentation Layout --- */
+/* --- Main Layout & Controls --- */
 main {
-    padding: 1rem;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1.25rem 1rem;
 }
 
 main h1 {
     text-align: center;
     color: var(--primary-brand);
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    font-size: 2.2rem;
+    margin: 0 0 1.25rem 0;
+    font-size: 2rem;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* --- Home Page Hero & CTA Overlay --- */
+.home-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.hero-box {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-ui);
+    box-shadow: var(--shadow-subtle);
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+    display: block;
+}
+
+.cta-overlay {
+    background-color: var(--overlay-bg);
+    color: var(--white);
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+}
+
+.cta-overlay h2 {
+    margin: 0 0 0.35rem 0;
+    color: var(--white);
+    font-size: 1.45rem;
+}
+
+.cta-overlay p {
+    margin: 0 0 0.85rem 0;
+    color: var(--text-slate);
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--accent-red);
+    color: var(--white);
+    padding: 0.65rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease;
+}
+
+.cta-btn:hover {
+    background-color: var(--secondary-brand);
+}
+
+/* --- Shared Cards, Events, Weather & Spotlights --- */
+.chamber-card,
+.spotlight-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-ui);
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    flex-direction: column;
+}
+
+.chamber-card h2,
+.spotlight-section-wrapper h2 {
+    margin-top: 0;
+    color: var(--primary-brand);
+}
+
+.event-item {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed var(--border-ui);
+}
+
+.event-item:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.event-date {
+    font-weight: 700;
+    color: var(--secondary-brand);
+    margin: 0.25rem 0;
+}
+
+.weather-now {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main-temp {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-brand);
+}
+
+.weather-desc {
+    font-weight: 700;
+    margin: 0;
+}
+
+.weather-divider,
+.spotlight-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-ui);
+    margin: 1rem 0;
+    width: 100%;
+}
+
+.forecast-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.forecast-day {
+    flex: 1;
+    background: var(--bg-canvas);
+    padding: 0.65rem;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid var(--border-ui);
+}
+
+.forecast-day h4 {
+    margin: 0 0 0.25rem 0;
+    color: var(--primary-brand);
+}
+
+.forecast-day p {
+    margin: 0;
+    font-weight: 700;
+}
+
+.spotlight-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.spot-info {
+    margin: 0.35rem 0;
+    font-size: 0.9rem;
+}
+
+.spot-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--primary-brand);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* --- Directory Controls & Cards --- */
 .directory-control-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
     background: var(--white);
     padding: 1rem;
+    margin-bottom: 1.75rem;
     border-radius: 8px;
+    border: 1px solid var(--border-ui);
     box-shadow: var(--shadow-subtle);
 }
 
-.directory-control-bar h2 { 
-    margin: 0; 
-    color: var(--primary-brand); 
+.directory-control-bar h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--primary-brand);
+}
+
+.view-toggle-buttons {
+    display: flex;
+    gap: 0.5rem;
 }
 
 .toggle-btn {
-    background: var(--border-ui);
-    border: none;
-    padding: 0.5rem 1.25rem;
+    background: var(--bg-canvas);
+    color: var(--primary-brand);
+    border: 1px solid var(--border-ui);
+    padding: 0.55rem 1.1rem;
+    border-radius: 4px;
     font-weight: 700;
     cursor: pointer;
-    border-radius: 4px;
-    color: var(--primary-brand);
-    margin: 0 0.25rem;
-    transition: background 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.toggle-btn.active {
+.toggle-btn.active,
+.toggle-btn:hover {
     background: var(--secondary-brand);
     color: var(--white);
+    border-color: var(--secondary-brand);
 }
 
-/* ==========================================================================
-   Display System Layout Modifiers (Grid Card Presentation Rules)
-   ========================================================================== */
+/* --- Grid View Mode --- */
 .grid-mode {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
 }
 
-.directory-card {
+.grid-mode .directory-card {
     background: var(--white);
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--border-ui);
     display: flex;
     flex-direction: column;
-    position: relative;
-    border: 1px solid var(--border-ui);
-}
-
-.grid-mode .directory-card {
-    text-align: center;
     align-items: center;
+    text-align: center;
 }
 
 .card-image-box {
-    height: 100px;
+    height: 90px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .card-image-box img {
-    max-width: 100%;
-    height: auto;
+    max-width: 180px;
+    max-height: 90px;
     object-fit: contain;
 }
 
-.grid-mode .company-details {
-    margin-top: auto;
-    text-align: left;
-    width: 100%;
-    font-size: 0.9rem;
-    border-top: 1px solid var(--bg-canvas);
-    padding-top: 1rem;
+.directory-card h3,
+.spotlight-card h3 {
+    margin: 0.25rem 0;
+    color: var(--primary-brand);
+    font-size: 1.2rem;
 }
 
 .company-tagline {
     font-style: italic;
     color: var(--text-muted);
-    margin: 0.5rem 0 1rem 0;
+    font-size: 0.9rem;
+    margin: 0.4rem 0 1rem 0;
+}
+
+.grid-mode .company-details {
+    width: 100%;
+    margin-top: auto;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--bg-canvas);
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.company-details p {
+    margin: 0.35rem 0;
+    word-break: break-word;
 }
 
 .company-web-link a {
-    color: var(--secondary-brand);
-    text-decoration: none;
+    color: var(--primary-brand);
+    font-weight: 700;
+    text-decoration: underline;
 }
 
+/* --- Membership Badges & Top Borders --- */
 .membership-badge {
     display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
+    padding: 0.3rem 0.85rem;
+    border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 700;
-    margin-top: 1rem;
+    text-transform: uppercase;
+    margin-top: 0.85rem;
 }
 
-.tier-gold { background: var(--gold-bg); border: 1px solid var(--gold-border); color: var(--gold-text); }
-.tier-silver { background: var(--silver-bg); border: 1px solid var(--silver-border); color: var(--silver-text); }
-.tier-member { background: var(--member-bg); border: 1px solid var(--member-border); color: var(--member-text); }
+.tier-gold { border-top: 4px solid var(--gold-border); }
+.tier-gold .membership-badge { background: var(--gold-bg); border: 1px solid var(--gold-border); color: var(--gold-text); }
 
-/* ==========================================================================
-   Display System Layout Modifiers (List Row Presentation Rules)
-   ========================================================================== */
+.tier-silver { border-top: 4px solid var(--silver-border); }
+.tier-silver .membership-badge { background: var(--silver-bg); border: 1px solid var(--silver-border); color: var(--silver-text); }
+
+.tier-member { border-top: 4px solid var(--member-border); }
+.tier-member .membership-badge { background: var(--member-bg); border: 1px solid var(--member-border); color: var(--member-text); }
+
+/* --- List View Mode (Imageless Clean Rows with Zebra Striping) --- */
 .list-mode {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    border: 1px solid var(--border-ui);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: var(--shadow-subtle);
 }
 
 .list-mode .directory-card {
     padding: 1rem;
-    border-radius: 4px;
+    border-top: none;
+    border-bottom: 1px solid var(--border-ui);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.list-mode .directory-card:last-child {
+    border-bottom: none;
+}
+
+.list-mode .directory-card:nth-child(even) {
+    background-color: var(--zebra-row);
 }
 
 .list-mode .card-image-box,
 .list-mode .company-tagline,
 .list-mode .membership-badge {
-    display: none !important; 
+    display: none;
 }
 
-.list-mode .directory-card h3 { margin: 0 0 0.5rem 0; color: var(--primary-brand); }
-.list-mode .company-details p { margin: 0.25rem 0; font-size: 0.95rem; }
+.list-mode .company-details p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+}
 
-/* --- Global Structural Footer --- */
+/* --- Footer --- */
 footer {
     background-color: var(--primary-brand);
     color: var(--white);
     padding: 2rem 1rem;
     text-align: center;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 
-.footer-contact { border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
-.footer-contact h3 { margin: 0 0 0.5rem 0; }
-.footer-contact a { color: #93c5fd; text-decoration: none; }
-.footer-dev-meta p { margin: 0.4rem 0; font-size: 0.9rem; color: #cbd5e1; }
+.footer-contact {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+}
 
-/* ==========================================================================
-   Tablet Breakpoint Overrides (Viewports above 640px)
-   ========================================================================== */
-@media screen and (min-width: 640px) {
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-    }
+.footer-contact h3 {
+    margin: 0 0 0.5rem 0;
+}
 
-    #navToggle { display: none; }
+.footer-contact p {
+    margin: 0.3rem 0;
+}
 
-    #primaryNav {
-        display: flex;
-        flex-direction: row;
-        width: auto;
-        max-height: none;
-        opacity: 1;
-        margin-top: 0;
-        overflow: visible;
-    }
-
-    #primaryNav a {
-        border-top: none;
-        margin-left: 0.5rem;
-        border-radius: 4px;
-        padding: 0.5rem 1rem;
-    }
-
-    .directory-control-bar {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1.25rem 2rem;
-    }
-
-    .grid-mode {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-
-    .list-mode .directory-card {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.75rem 1.5rem;
-    }
-
-    .list-mode .directory-card h3 {
-        flex: 1;
-        margin: 0;
-        font-size: 1.1rem;
-    }
-
-    .list-mode .company-details {
-        display: flex;
-        flex: 2;
-        justify-content: space-between;
-        gap: 1rem;
-    }
-
-    .list-mode .company-details p { margin: 0; }
+.footer-contact a {
+color: var(--link-light);
+text-decoration: underline;
+}
+.footer-dev-meta p {
+margin: 0.35rem 0;
+font-size: 0.9rem;
+color: var(--text-slate);
 }

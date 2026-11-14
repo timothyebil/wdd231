@@ -1,24 +1,127 @@
+@media screen and (min-width: 640px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    #navToggle {
+        display: none;
+    }
+
+    #primaryNav {
+        flex-direction: row;
+        width: auto;
+        max-height: none;
+        opacity: 1;
+        overflow: visible;
+        margin-top: 0;
+    }
+
+    #primaryNav a {
+        border-top: 0;
+        margin-left: 0.5rem;
+        border-radius: 4px;
+        padding: 0.5rem 1rem;
+    }
+
+    .cta-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--overlay-bg);
+    }
+
+    .directory-control-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1.25rem 2rem;
+    }
+
+    .grid-mode {
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        gap: 1.75rem;
+    }
+
+    .list-mode .directory-card {
+        display: grid;
+        grid-template-columns: 1.5fr 2.5fr;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.85rem 1.5rem;
+    }
+
+    .list-mode .company-details {
+        display: grid;
+        grid-template-columns: 2fr 1.4fr 1fr;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .list-mode .company-details p {
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    /* Home Page Asymmetric Desktop Grid */
+    .home-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1.75rem;
+    }
+
+    .hero-box {
+        grid-column: 1 / -1;
+    }
+
+    .event-card {
+        grid-column: 1 / 2;
+    }
+
+    .weather-card {
+        grid-column: 2 / 3;
+    }
+
+    .spotlight-section-wrapper {
+        grid-column: 1 / -1;
+    }
+
+    .spotlight-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .spotlight-card {
+        align-items: center;
+        text-align: center;
+    }
+}
+
 @media screen and (min-width: 1024px) {
     main {
-        padding: 2rem 1rem;
+        padding: 2rem 1.5rem;
     }
 
-    /* Expand directory grid framework to a clean three-column card system */
     .grid-mode {
         grid-template-columns: repeat(3, 1fr);
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
-    .directory-card {
-        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+    .directory-card,
+    .spotlight-card {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .grid-mode .directory-card:hover {
+    .directory-card:hover,
+    .spotlight-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
     }
 
-    /* Multi-column grid realignment inside the document footer */
     footer {
         display: flex;
         justify-content: space-between;
@@ -28,7 +131,7 @@
     }
 
     .footer-contact {
-        border-bottom: none;
+        border-bottom: 0;
         padding-bottom: 0;
         margin-bottom: 0;
     }

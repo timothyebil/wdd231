@@ -4,7 +4,7 @@
 
 :root {
     --primary: #1d3557;
-    --secondary: #457b9d;
+    --secondary: #2b5876;
     --accent: #b91c1c;
     --bg: #f1f5f9;
     --surface: #ffffff;
@@ -147,7 +147,7 @@ main h1 {
 }
 
 .cta-overlay {
-    background-color: rgba(29, 53, 87, 0.92);
+    background-color: #1d3557;
     color: var(--surface);
     padding: 1.25rem 1.5rem;
     text-align: center;

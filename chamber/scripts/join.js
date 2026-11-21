@@ -1,4 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // 0. Responsive Navigation & Dynamic Footer Dates
+    const navToggle = document.getElementById("navToggle");
+    const primaryNav = document.getElementById("primaryNav");
+    const yearSpan = document.getElementById("yearNode");
+    const modParagraph = document.getElementById("modNode");
+
+    if (navToggle && primaryNav) {
+        navToggle.addEventListener("click", () => {
+            const isOpen = primaryNav.classList.toggle("open");
+            navToggle.textContent = isOpen ? "✖" : "☰";
+            navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+    }
+
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    if (modParagraph) modParagraph.textContent = `Last Modified: ${document.lastModified}`;
+
     // 1. Set Hidden Form Load Timestamp on join.html
     const timestampInput = document.getElementById("formTimestamp");
     if (timestampInput) {

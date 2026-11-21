@@ -1,5 +1,22 @@
 import { attractions } from '../data/discover.mjs';
 
+// 0. Responsive Navigation & Dynamic Footer Dates
+const navToggle = document.querySelector('#navToggle');
+const primaryNav = document.querySelector('#primaryNav');
+const yearNode = document.querySelector('#yearNode');
+const modNode = document.querySelector('#modNode');
+
+if (navToggle && primaryNav) {
+    navToggle.addEventListener('click', () => {
+        const isOpen = primaryNav.classList.toggle('open');
+        navToggle.textContent = isOpen ? '✖' : '☰';
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+}
+
+if (yearNode) yearNode.textContent = new Date().getFullYear();
+if (modNode) modNode.textContent = `Last Modified: ${document.lastModified}`;
+
 // 1. localStorage Visitor Message Logic
 const visitBanner = document.querySelector('#visitBanner');
 const visitMessage = document.querySelector('#visitMessage');

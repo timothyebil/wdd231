@@ -6,8 +6,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--primary-brand);
-    color: var(--white);
+    background: var(--primary);
+    color: var(--surface);
     padding: 0.85rem 1.25rem;
     border-radius: 8px;
     margin-bottom: 1.5rem;
@@ -20,8 +20,8 @@
 
 /* High-Contrast Close Button (11.5:1 AA Ratio) */
 .modal-close-btn {
-    background: var(--border-ui);
-    color: var(--primary-brand);
+    background: var(--slate);
+    color: var(--primary);
     border: 0;
     border-radius: 4px;
     padding: 0.35rem 0.7rem;
@@ -35,7 +35,7 @@
 }
 
 .demographics-bar h2 {
-    color: var(--primary-brand);
+    color: var(--primary);
     margin: 0 0 1rem 0;
 }
 
@@ -48,7 +48,7 @@
 .stats-row strong {
     display: block;
     font-size: 1.3rem;
-    color: var(--accent-red);
+    color: var(--accent);
 }
 
 /* --- Small Screens (320px to 640px): Single-Column Named Grid Areas --- */
@@ -67,14 +67,14 @@
         "card8";
 }
 
-.area-card1 { grid-area: card1; }
-.area-card2 { grid-area: card2; }
-.area-card3 { grid-area: card3; }
-.area-card4 { grid-area: card4; }
-.area-card5 { grid-area: card5; }
-.area-card6 { grid-area: card6; }
-.area-card7 { grid-area: card7; }
-.area-card8 { grid-area: card8; }
+.area-card1, .area-1 { grid-area: card1; }
+.area-card2, .area-2 { grid-area: card2; }
+.area-card3, .area-3 { grid-area: card3; }
+.area-card4, .area-4 { grid-area: card4; }
+.area-card5, .area-5 { grid-area: card5; }
+.area-card6, .area-6 { grid-area: card6; }
+.area-card7, .area-7 { grid-area: card7; }
+.area-card8, .area-8 { grid-area: card8; }
 
 .discover-card {
     display: flex;
@@ -83,7 +83,7 @@
 }
 
 .discover-card h2 {
-    color: var(--primary-brand);
+    color: var(--primary);
     margin: 0;
     font-size: 1.25rem;
 }
@@ -106,7 +106,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 0.85rem;
-    color: var(--secondary-brand);
+    color: var(--secondary);
 }
 
 .discover-card p {
@@ -121,29 +121,32 @@
 
 /* Native Dialog Modal Styling */
 .tier-modal {
-    border: 1px solid var(--border-ui);
+    border: 1px solid var(--slate);
     border-radius: 8px;
     padding: 1.5rem;
     max-width: 450px;
     width: 90%;
+    background: var(--surface);
+    color: var(--text);
 }
 
 .tier-modal::backdrop {
-    background: var(--overlay-bg);
+    background: var(--primary);
+    opacity: 0.85;
 }
 
 .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--border-ui);
+    border-bottom: 1px solid var(--slate);
     padding-bottom: 0.75rem;
     margin-bottom: 1rem;
 }
 
 .modal-header h3 {
     margin: 0;
-    color: var(--primary-brand);
+    color: var(--primary);
 }
 
 /* --- Medium Screens (641px to 1024px): Asymmetric Featured Grid Areas --- */

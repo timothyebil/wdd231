@@ -27,8 +27,7 @@
     <link rel="stylesheet" href="styles/chamber-small.css">
     <link rel="stylesheet" href="styles/chamber-larger.css">
     
-    <!-- Deferred JavaScript Modules -->
-    <script src="scripts/directory.js" defer></script>
+    <!-- Deferred JavaScript Module -->
     <script src="scripts/join.js" defer></script>
 </head>
 <body>
@@ -40,7 +39,7 @@
                 <span>Commerce &amp; Infrastructure Advancement</span>
             </div>
         </div>
-        <button id="navToggle" aria-label="Toggle Navigation Options Menu">☰</button>
+        <button id="navToggle" aria-label="Toggle Navigation Options Menu" aria-expanded="false">☰</button>
         <nav id="primaryNav">
             <a href="index.html">Home</a>
             <a href="directory.html">Directory</a>
@@ -203,3 +202,4 @@
         <div class="footer-dev-meta">
             <p>&copy; <span id="yearNode"></span> | <strong>Timothy Ebil</strong> | Uganda</p>
             <p>Course Track: WDD 231 - Web Frontend Development II</p>
+            <p id="modNode"></p>

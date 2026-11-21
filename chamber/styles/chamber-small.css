@@ -183,8 +183,8 @@ main h1 {
     flex-direction: column;
 }
 
-.chamber-card h2, .spotlight-section-wrapper h2, .directory-control-bar h2, .tier-cards-box h2, .modal-header h3 {
-    margin: 0 0 0.75rem;
+.chamber-card h2, .spotlight-section-wrapper h2, .directory-control-bar h2, .tier-cards-box h2, .modal-header h3, .forecast-day h4, .directory-card h3, .spotlight-card h3, .tier-card h3 {
+    margin: 0 0 0.5rem;
     color: var(--primary);
 }
 
@@ -238,11 +238,6 @@ main h1 {
     border-radius: 6px;
     text-align: center;
     border: 1px solid var(--slate);
-}
-
-.forecast-day h4, .directory-card h3, .spotlight-card h3, .tier-card h3 {
-    margin: 0 0 0.35rem;
-    color: var(--primary);
 }
 
 .directory-control-bar {
@@ -373,7 +368,6 @@ main h1 {
     display: none;
 }
 
-/* --- Join Form, Modals & Thank You Summary --- */
 .join-form label {
     display: flex;
     flex-direction: column;

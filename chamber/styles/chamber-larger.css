@@ -1,5 +1,5 @@
 @media screen and (min-width: 640px) {
-    header {
+    header, .directory-control-bar {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -12,7 +12,6 @@
 
     #primaryNav {
         flex-direction: row;
-        width: auto;
         max-height: none;
         opacity: 1;
         overflow: visible;
@@ -31,13 +30,6 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: #1d3557;
-    }
-
-    .directory-control-bar {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1.25rem 2rem;
     }
 
     .grid-mode {
@@ -45,51 +37,30 @@
         gap: 1.75rem;
     }
 
-    .list-mode .directory-card {
+    .list-mode .directory-card, .list-mode .company-details {
         display: grid;
         grid-template-columns: 1.5fr 2.5fr;
         align-items: center;
         gap: 1rem;
-        padding: 0.85rem 1.5rem;
     }
 
     .list-mode .company-details {
-        display: grid;
         grid-template-columns: 2fr 1.4fr 1fr;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .list-mode .company-details p {
-        margin: 0;
     }
 }
 
 @media screen and (min-width: 768px) {
-    /* Home Page Asymmetric Desktop Grid */
     .home-grid {
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: 1.75rem;
     }
 
-    .hero-box {
+    .hero-box, .spotlight-section-wrapper {
         grid-column: 1 / -1;
     }
 
-    .event-card {
-        grid-column: 1 / 2;
-    }
-
-    .weather-card {
-        grid-column: 2 / 3;
-    }
-
-    .spotlight-section-wrapper {
-        grid-column: 1 / -1;
-    }
-
-    .spotlight-grid {
+    .spotlight-grid, .grid-mode {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
@@ -100,7 +71,6 @@
         text-align: center;
     }
 
-    /* Join Page Two-Column Desktop Layout (Form Left, Tier Cards Right) */
     .join-layout {
         display: grid;
         grid-template-columns: 1.4fr 1fr;
@@ -114,26 +84,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-    main {
-        padding: 2rem 1.5rem;
-    }
-
-    .grid-mode {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-    }
-
-    .directory-card,
-    .spotlight-card {
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .directory-card:hover,
-    .spotlight-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-    }
-
     footer {
         display: flex;
         justify-content: space-between;

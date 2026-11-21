@@ -99,6 +99,18 @@
         align-items: center;
         text-align: center;
     }
+
+    /* Join Page Two-Column Desktop Layout (Form Left, Tier Cards Right) */
+    .join-layout {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        align-items: start;
+        gap: 2rem;
+    }
+
+    .summary-list {
+        grid-template-columns: 200px 1fr;
+    }
 }
 
 @media screen and (min-width: 1024px) {

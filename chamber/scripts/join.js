@@ -1,65 +1,101 @@
-/**
- * ==========================================================================
- * WDD 231 Chamber Portal - Join Form, Modals & Confirmation Handler
- * ==========================================================================
- */
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Set Hidden Form Load Timestamp on join.html
+    const timestampInput = document.getElementById("formTimestamp");
+    if (timestampInput) {
+        const now = new Date();
+        timestampInput.value = now.toLocaleString("en-US", {
+            dateStyle: "medium",
+            timeStyle: "short"
+        });
+    }
 
-// 1. Populate Hidden Timestamp Field on join.html
-const timestampField = document.querySelector('#formTimestamp');
-if (timestampField) {
-    timestampField.value = new Date().toLocaleString();
-}
+    // 2. Open & Close Membership Tier Modals
+    const openButtons = document.querySelectorAll(".modal-open-btn");
+    const closeButtons = document.querySelectorAll(".modal-close-btn");
 
-// 2. Interactive Modal Triggers (Zero inline onclick handlers)
-const openLinks = document.querySelectorAll('.modal-open-btn');
-const closeButtons = document.querySelectorAll('.modal-close-btn');
-const dialogs = document.querySelectorAll('.tier-modal');
-
-openLinks.forEach(link => {
-    link.addEventListener('click', (event) => {
-        event.preventDefault();
-        const targetId = link.getAttribute('data-modal');
-        const dialog = document.getElementById(targetId);
-        if (dialog) {
-            dialog.showModal();
-        }
+    openButtons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const modalId = btn.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.showModal();
+            }
+        });
     });
-});
 
-closeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const dialog = btn.closest('dialog');
-        if (dialog) {
-            dialog.close();
-        }
+    closeButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const modal = btn.closest("dialog");
+            if (modal) {
+                modal.close();
+            }
+        });
     });
-});
 
-dialogs.forEach(dialog => {
-    dialog.addEventListener('click', (event) => {
-        if (event.target === dialog) {
-            dialog.close();
-        }
+    // Close modal when clicking outside dialog backdrop
+    document.querySelectorAll("dialog.tier-modal").forEach((dialog) => {
+        dialog.addEventListener("click", (e) => {
+            const rect = dialog.getBoundingClientRect();
+            const isInDialog =
+                rect.top <= e.clientY &&
+                e.clientY <= rect.top + rect.height &&
+                rect.left <= e.clientX &&
+                e.clientX <= rect.left + rect.width;
+            if (!isInDialog) {
+                dialog.close();
+            }
+        });
     });
+
+    // 3. Parse URL Parameters on thankyou.html
+    const resultsContainer = document.getElementById("applicationSummary");
+    if (resultsContainer) {
+        const params = new URLSearchParams(window.location.search);
+        const tierNames = {
+            np: "NP Membership (Non-Profit)",
+            bronze: "Bronze Membership",
+            silver: "Silver Membership",
+            gold: "Gold Membership"
+        };
+
+        const fname = params.get("fname") || "Applicant";
+        const lname = params.get("lname") || "";
+        const orgtitle = params.get("orgtitle") || "Not specified";
+        const email = params.get("email") || "Not provided";
+        const phone = params.get("phone") || "Not provided";
+        const organization = params.get("organization") || "Not provided";
+        const membership = tierNames[params.get("membership")] || "Standard";
+        const timestamp = params.get("timestamp") || new Date().toLocaleString();
+
+        resultsContainer.innerHTML = `
+            <div class="summary-card">
+                <h2>Application Confirmation Receipt</h2>
+                <p>Thank you, <strong>${fname} ${lname}</strong>! Your membership application for <strong>${organization}</strong> has been received by the Lira Chamber of Commerce.</p>
+                <dl class="summary-list">
+                    <dt>Applicant Name:</dt>
+                    <dd>${fname} ${lname}</dd>
+
+                    <dt>Organizational Title:</dt>
+                    <dd>${orgtitle}</dd>
+
+                    <dt>Email Address:</dt>
+                    <dd>${email}</dd>
+
+                    <dt>Mobile Phone:</dt>
+                    <dd>${phone}</dd>
+
+                    <dt>Business / Organization:</dt>
+                    <dd>${organization}</dd>
+
+                    <dt>Selected Membership Level:</dt>
+                    <dd>${membership}</dd>
+
+                    <dt>Submission Timestamp:</dt>
+                    <dd>${timestamp}</dd>
+                </dl>
+                <a href="index.html" class="cta-btn">Return to Home Portal</a>
+            </div>
+        `;
+    }
 });
-
-// 3. Parse and Display Required Form Fields on thankyou.html
-const resultsContainer = document.querySelector('#submissionResults');
-if (resultsContainer) {
-    const params = new URLSearchParams(window.location.search);
-    const firstName = params.get('fname') || 'Not provided';
-    const lastName = params.get('lname') || 'Not provided';
-    const email = params.get('email') || 'Not provided';
-    const phone = params.get('phone') || 'Not provided';
-    const organization = params.get('organization') || 'Not provided';
-    const timestamp = params.get('timestamp') || new Date().toLocaleString();
-
-    resultsContainer.innerHTML = `
-        <p><strong>First Name:</strong> ${firstName}</p>
-        <p><strong>Last Name:</strong> ${lastName}</p>
-        <p><strong>Email Address:</strong> ${email}</p>
-        <p><strong>Mobile Number:</strong> ${phone}</p>
-        <p><strong>Business / Organization Name:</strong> ${organization}</p>
-        <p><strong>Application Timestamp:</strong> ${timestamp}</p>
-    `;
-}

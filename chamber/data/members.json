@@ -1,58 +1,65 @@
-export const attractions = [
+[
     {
-        id: "card1",
-        name: "Lira Central Market",
-        address: "Obote Avenue, Central Division, Lira City",
-        image: "images/discovers/lira-market.webp",
-        description: "One of Northern Uganda's largest modern commercial markets, serving as the primary trading center for regional grains, oilseeds, and fresh agricultural produce."
+        "name": "Nile Basin Agribusiness Ltd",
+        "address": "Plot 24, Gulu-Lira Highway, Lira",
+        "phone": "+256 414 555101",
+        "website": "https://github.io",
+        "image": "nile-basin.svg",
+        "membershipLevel": 3,
+        "tagline": "Sustainable regional crop procurement and wholesale logistics architecture."
     },
     {
-        id: "card2",
-        name: "Barlonyo Memorial Site",
-        address: "Agweng Sub-county, Lira District",
-        image: "images/discovers/barlonyo-memorial.webp",
-        description: "A solemn historical monument and heritage center honoring the resilience, remembrance, and peace-building journey of the Lango sub-region."
+        "name": "SykWay Orbit Tech Solutions",
+        "address": "Bazaar Ward, Lira City",
+        "phone": "+256 778 831214",
+        "website": "https://github.io",
+        "image": "sykway-tech.svg",
+        "membershipLevel": 3,
+        "tagline": "Architectural systems integration and high-performance ICT infrastructure deployments."
     },
     {
-        id: "card3",
-        name: "Lira University Campus",
-        address: "Barapwo Ward, Lira-Kamdini Highway, Lira",
-        image: "images/discovers/lira-university.webp",
-        description: "A premier public university driving research, public health innovation, and skilled workforce development across Northern Uganda."
+        "name": "Lira City Millers",
+        "address": "Industrial Area, Block B, Lira",
+        "phone": "+256 414 555103",
+        "website": "https://github.io",
+        "image": "lira-millers.svg",
+        "membershipLevel": 2,
+        "tagline": "High-capacity processing, packaging, and distribution of premium grain products."
     },
     {
-        id: "card4",
-        name: "Ngetta Rock & Agricultural Research",
-        address: "Ngetta Hill, 8 km North of Lira City",
-        image: "images/discovers/ngetta-rock.webp",
-        description: "A scenic granite outcrop offering panoramic views of Lira alongside the Ngetta Zonal Agricultural Research and Development Institute (ZARDI)."
+        "name": "Equator Solar Power Uganda",
+        "address": "Soroti Road, Lira",
+        "phone": "+256 414 555104",
+        "website": "https://github.io",
+        "image": "equator-solar.svg",
+        "membershipLevel": 2,
+        "tagline": "Off-grid domestic and industrial solar micro-grid design engineering solutions."
     },
     {
-        id: "card5",
-        name: "Lake Kwania Shoreline Hub",
-        address: "Amolatar & Dokolo Border Corridor",
-        image: "images/discovers/lake-kwania.webp",
-        description: "A vital freshwater fishery and eco-tourism corridor supporting sustainable aquaculture, lakeside trade, and regional transport routes."
+        "name": "Savanna Logistics & Transport",
+        "address": "Kampala Road, Lira",
+        "phone": "+256 414 555105",
+        "website": "https://github.io",
+        "image": "savanna-logistics.svg",
+        "membershipLevel": 1,
+        "tagline": "Cross-border commercial heavy haulage, fleet tracking, and cargo security."
     },
     {
-        id: "card6",
-        name: "Lira Industrial Area & Oilseed Mills",
-        address: "Industrial Division, Soroti Road, Lira",
-        image: "images/discovers/lira-industrial.webp",
-        description: "The manufacturing backbone of Lango, housing high-capacity sunflower oil refineries, cotton ginneries, and grain processing plants."
+        "name": "Atek Community Medical Centre",
+        "address": "Adyel Division, Lira",
+        "phone": "+256 414 555106",
+        "website": "https://github.io",
+        "image": "atek-medical.svg",
+        "membershipLevel": 1,
+        "tagline": "Advanced clinical diagnostics, emergency trauma support, and outpatient healthcare."
     },
     {
-        id: "card7",
-        name: "Akii-Bua Olympic Stadium",
-        address: "Erute Road, Lira City",
-        image: "images/discovers/akii-bua-stadium.webp",
-        description: "Named after Uganda's first Olympic gold medalist John Akii-Bua, this sports complex hosts major regional athletics and community tournaments."
-    },
-    {
-        id: "card8",
-        name: "Lango Cultural Foundation Palace",
-        address: "Oyam Road, Senior Quarters, Lira City",
-        image: "images/discovers/lango-palace.webp",
-        description: "The traditional administrative seat of the Won Nyaci, preserving Lango cultural heritage, traditional music, and community leadership."
+        "name": "Northern Uganda Microfinance",
+        "address": "Main Street, Plot 12, Lira",
+        "phone": "+256 414 555107",
+        "website": "https://github.io",
+        "image": "nu-microfinance.svg",
+        "membershipLevel": 3,
+        "tagline": "Empowering micro-enterprise acceleration with fair accessible capital programs."
     }
-];
+]
